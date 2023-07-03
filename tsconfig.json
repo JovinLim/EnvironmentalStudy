@@ -9,6 +9,12 @@
     "jsxImportSource": "solid-js",
     "types": ["vite/client"],
     "noEmit": true,
-    "isolatedModules": true
-  }
+    "isolatedModules": true,
+    // "outDir": "out-tsc",
+    "rootDir": "./"
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/*.tsx",
+              ]
 }
