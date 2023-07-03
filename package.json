@@ -16,20 +16,19 @@
       "import": "./dist/esm/index.js",
       "browser": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js",
-      "node": "./dist/cjs/index.js",
+      "node": "./dist/cjs/index.js"
     }
   },
   "scripts": {
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "rbuild": "./src/index.tsx -o public/bundle.js -f cjs"
   },
   "license": "MIT",
   "devDependencies": {
     "@open-wc/building-rollup": "^3.0.0",
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "@rollup/plugin-terser": "^0.4.3",
     "@rollup/plugin-typescript": "^11.1.2",
     "autoprefixer": "^10.4.14",
     "deepmerge": "^4.3.1",
@@ -46,7 +45,6 @@
     "vite-plugin-solid": "^2.7.0"
   },
   "dependencies": {
-    "rollup-plugin-postcss": "^4.0.2",
     "solid-js": "^1.7.6"
   }
 }
