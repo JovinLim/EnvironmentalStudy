@@ -3,32 +3,33 @@
   "version": "0.0.0",
   "description": "",
   "type": "module",
-  "source": "src/App.tsx",
-  "main": "dist/cjs/App.js",
-  "module": "dist/esm/App.js",
-  "types": "dist/types/App.tsx",
+  "source": "src/index.tsx",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.tsx",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "solid": "./dist/source/App.jsx",
-      "import": "./dist/esm/App.js",
-      "browser": "./dist/esm/App.js",
-      "require": "./dist/cjs/App.js",
-      "node": "./dist/cjs/App.js"
+      "solid": "./dist/source/index.jsx",
+      "import": "./dist/esm/index.js",
+      "browser": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "node": "./dist/cjs/index.js"
     }
   },
   "scripts": {
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "rbuild": "./src/App.tsx -o public/bundle.js -f cjs"
+    "serve": "vite preview"
   },
   "license": "MIT",
   "devDependencies": {
     "@open-wc/building-rollup": "^3.0.0",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-terser": "^0.4.3",
     "@rollup/plugin-typescript": "^11.1.2",
     "autoprefixer": "^10.4.14",
     "deepmerge": "^4.3.1",
@@ -45,6 +46,7 @@
     "vite-plugin-solid": "^2.7.0"
   },
   "dependencies": {
+    "rollup-plugin-postcss": "^4.0.2",
     "solid-js": "^1.7.6"
   }
 }
