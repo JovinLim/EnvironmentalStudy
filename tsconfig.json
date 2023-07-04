@@ -7,14 +7,19 @@
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vite/client"],
+    "types": ["vite/client", "node"],
     "noEmit": true,
     "isolatedModules": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
     // "outDir": "out-tsc",
     "rootDir": "./"
   },
   "include": [
+    "./src/**/*.js",
     "./src/**/*.ts",
-    "./src/*.tsx",
+    "./src/**/*.jsx",
+    "./src/**/*.tsx",
+    "./src/**/*.d.ts",
               ]
 }

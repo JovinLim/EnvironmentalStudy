@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.drawer {
+    max-width: 10%;
+    min-width: 10%;
+    height: max-content;
+    left: 0;
+    background: rgb(41, 41, 41);
+    backdrop-filter: blur(7px);
+    overflow: visible;
+    position: fixed;
+}
+
+.canvas {
+    width: 100vw;
+    height: 100vh;
+}
