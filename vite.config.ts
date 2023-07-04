@@ -11,7 +11,7 @@ export default defineConfig({
     // devtools(),
     solidPlugin(),
   ],
-  base:"/SunPath/",
+  base:"/SunpathDiagram/",
   server: {
     port: 3000,
   },
