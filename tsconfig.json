@@ -20,6 +20,6 @@
     "./src/**/*.ts",
     "./src/**/*.jsx",
     "./src/**/*.tsx",
-    "./src/**/*.d.ts",
+    "./src/**/*.d.ts", "src/Components/Geoservices/OpenLayersMap.cjs", "src/Components/OpenLayersMap.cjs",
               ]
 }

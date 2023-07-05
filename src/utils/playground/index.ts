@@ -125,6 +125,7 @@ export default class Playground
 
   public diagramGroup = new Group;
   private markingGroup = new Group;
+  private lightingGroup = new Group;
   private defaultUp = new THREE.Vector3(0,0,1) // Defining default up for scene
   public sunPos = { x: 0, y:0, z:0 }
 
@@ -261,14 +262,21 @@ export default class Playground
   private createLights (): void {
     const { ambient, directional } = Config.Lights;
 
-    this.ambient = new AmbientLight(ambient.color, ambient.intensity);
-    this.directional = new DirectionalLight(directional.color, directional.intensity);
-    this.helper = new DirectionalLightHelper(this.directional, directional.helper.size, directional.helper.color);
+    if (this.lightingGroup.children.length > 0) {
 
-    this.updateDirectional(directional);
-    this.ambient.layers.enable(0)
-    this.ambient.layers.set(0)
-    this.scene.add(this.ambient);
+    }
+
+    else {
+      this.ambient = new AmbientLight(ambient.color, ambient.intensity);
+      this.directional = new DirectionalLight(directional.color, directional.intensity);
+      this.helper = new DirectionalLightHelper(this.directional, directional.helper.size, directional.helper.color);
+  
+      this.updateDirectional(directional);
+      this.ambient.layers.enable(0)
+      this.ambient.layers.set(0)
+      this.lightingGroup.add(this.ambient)
+      this.scene.add(this.lightingGroup);
+    }
   }
 
   private createGround (): void {
