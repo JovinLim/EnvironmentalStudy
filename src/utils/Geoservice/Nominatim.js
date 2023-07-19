@@ -1,3 +1,9 @@
+/*
+Nominatim Service provider
+
+CREATED BY JOVIN
+*/
+
 import { fromLonLat, transform } from 'ol/proj';
 import VectorLayer from 'ol/layer/Vector.js';
 import VectorSource from 'ol/source/Vector.js';
@@ -9,14 +15,14 @@ import { Style, Icon } from 'ol/style';
 // Other imports
 import { playground, setPlayground } from '../../App';
 // import { setDBStorage } from '../Storage/IndexedDBFunctions';
-import { getCountry, updateLocation, getEPW_URL } from '../../Components/Geoservices/OpenLayersMap.cjs';
+import { getAddress, updateLocation, getEPW_URL } from '../../Components/Geoservices/OpenLayersMap.cjs';
 import {displayLoading, hideLoading} from '../General/LoadingHandler'
 
 export default class Nominatim {
     /**
    * @constructor
    * @param {Function} base Base class.
-   */
+   **/
 
     baseURL = 'https://nominatim.openstreetmap.org/search?'
     constructor(base) {
@@ -26,7 +32,18 @@ export default class Nominatim {
     }
 
     configureSearchInput() {
+  /*
+    Configuring results shown for search input
+    
+    Arguments:
+      - 
 
+    Returns:
+      -
+
+    Notes:
+      - 
+  */
         const getSearchResults = async (params_, max_results = 5) => {
             let searchResult;
             const queryString = new URLSearchParams(params_).toString();

@@ -1,7 +1,16 @@
+/*
+Loading handlers
+
+CREATED BY JOVIN/BOB
+
+Contains functions relating to alerts
+
+  - displayLoading
+  - hideLoading
+*/
+
 export function displayLoading() {
-    // const loader = document.createElement("div")
-    // loader.id = "loading"
-    // document.appendChild(loader)
+
     const loader = document.querySelector('#loading') as HTMLDivElement
     loader.classList.add("display")
     // setTimeout(() => {

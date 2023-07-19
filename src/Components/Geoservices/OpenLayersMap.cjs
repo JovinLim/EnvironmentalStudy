@@ -1,3 +1,18 @@
+/*
+OpenLayers map
+
+CREATED BY JOVIN
+
+Contains functions relating to geoservices for the OpenLayers map
+
+Current functions:
+  - build map
+  - update map marker
+  - update location
+  - get address of search
+  - get epw url
+*/
+
 // ol imports
 import Map from 'ol/Map.js';
 import OSM from 'ol/source/OSM.js';
@@ -27,6 +42,18 @@ let map = new Map;
 const parser = new XMLParser();
 
 export function buildMap(div){
+/*
+  Builds ol map
+  
+  Arguments:
+    - div : Target HTMLDivElement to contain map
+
+  Returns:
+    -
+
+  Notes:
+    - 
+*/
   let playground_ = playground()
   map = new Map({
       target: div,
@@ -79,21 +106,30 @@ export function buildMap(div){
     // Updating view on click
     updateMap(playground_, this)
     playground_.createDiagram()
-    // map.getView().animate({duraction:300, resolution: 2.4, zoom: 13}, {duration: 300, center: fromLonLat([playground_.Details.coords.lng, playground_.Details.coords.lat])})
-    // updateMarker(map)
   })
 
-  // // select interaction working on "click"
+  // // Select interaction working on "click"; for future purposes if needed
   // const selectClick = new Select({});
 
   // map.addInteraction(selectClick)
   // selectClick.on('select', function(e) {
   //   console.log(e.target.coords)
   // })
-
 }
 
 export async function updateMarker(map) {
+/*
+  Updates marker on map
+  
+  Arguments:
+    - map : Target Map object
+
+  Returns:
+    -
+
+  Notes:
+    - Removes previous marker layer and adds a new one
+*/
     const playground_ = playground()
     map.removeLayer(marker())
     var marker_ = new VectorLayer({
@@ -117,19 +153,43 @@ export async function updateMarker(map) {
 }
 
 export function updateMap(playground_, map_) {
+/*
+  Updates map view
+  
+  Arguments:
+    - playground_ : Target Playground object
+    - map_ : Target Map object
+
+  Returns:
+    -
+
+  Notes:
+    - 
+*/
   if (map_ == undefined){
   }
   else {
     map_.getView().animate({duraction:300, resolution: 2.4, zoom: 13}, {duration: 300, center: fromLonLat([playground_.Details.coords.lng, playground_.Details.coords.lat])})
     updateMarker(map_)
-    getCountry(playground_.Details.coords)
+    getAddress(playground_.Details.coords)
     getEPW_URL(playground_)
   }
   // setDBStorage('App')
-
 }
 
 export function updateLocation(playground_) {
+/*
+  Update location of Geoservices div
+  
+  Arguments:
+    - playground_ : Target Playground object
+
+  Returns:
+    -
+
+  Notes:
+    - 
+*/
   var lngdisp = document.getElementById('lngDisplay')
   var latdisp = document.getElementById('latDisplay')
   var utcdisp = document.getElementById('UTCDisplay')
@@ -138,7 +198,19 @@ export function updateLocation(playground_) {
   utcdisp.innerHTML = playground_.Details.UTC > 0 ? `+${playground_.Details.UTC}` : `${playground_.Details.UTC}`
 }
 
-export function getCountry(latlng){
+export function getAddress(latlng){
+/*
+  Get address of current click or search and updates playground() details
+  
+  Arguments:
+    - latlng : Object containing latitude and longitude
+
+  Returns:
+    - 
+
+  Notes:
+    - 
+*/
   const playground_ = playground()
   // let sims = [...upfiles()]
   fetch('https://nominatim.openstreetmap.org/reverse?'+new URLSearchParams({
@@ -149,17 +221,22 @@ export function getCountry(latlng){
   }).then((data)=>{
     let result = parser.parse(data);
     playground_.Details.address = result.reversegeocode.addressparts;
-    // sims.forEach(sim => {
-    //   if(sim.id === playground_.Details.Uid){
-    //     sim.address = playground_.Details.address;
-    //     sim.epw_url = playground_.Details.epwURL;
-    //     console.log(sim)
-    //   }
-    // });
   });
 }
 
 export function getEPW_URL(playground_ ) {
+/*
+  Gets URL for coordinates in target Playground object
+  
+  Arguments:
+    - playground_ : Target Playground object
+
+  Returns:
+    -
+
+  Notes:
+    - 
+*/
   var distances = []
 
   for (var i = 0; i < (epwInfo).epw.length; i++) {

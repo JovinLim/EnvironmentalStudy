@@ -1,3 +1,21 @@
+/*
+EPW Compile
+
+CREATED BY JOVIN
+
+Contains functions to extract epw information from JSON and KML files, compile them into one JSON with a standard format
+...
+    {
+      "name": "DZA_Algiers.603900_IWEC",
+      "coords": [
+        3.25,
+        36.72
+      ],
+      "url": "https://energyplus-weather.s3.amazonaws.com/africa_wmo_region_1/DZA/DZA_Algiers.603900_IWEC/DZA_Algiers.603900_IWEC.zip"
+    },...
+
+*/
+
 import fs from 'fs';
 import JSONStream from 'JSONStream';
 
@@ -22,15 +40,6 @@ function JSONReader(filePath) {
 
                 json_stuff_.push(epw_info);
             })
-            // for (var i = 0; i < epw_json.length; i++) {
-            //     const epw_info = {
-            //         name : epw_json[i].properties.title,
-            //         coords : epw_json[i].geometry.coordinates,
-            //         url : epw_json[i].properties.all.split('=')[1].split('>')[0]
-            //     }
-
-            //     json_stuff_.push(epw_info);
-            // }
 
         } catch (err) {
             console.log(err);

@@ -1,3 +1,9 @@
+/*
+Custom Searchbar for ol
+
+CREATED BY JOVIN
+*/
+
 import { Control, defaults as defaultControls } from 'ol/control.js';
 import { createSignal } from 'solid-js';
 import {v4 as uuidv4 } from 'uuid';
@@ -5,7 +11,6 @@ import 'flowbite';
 import Nominatim from './Nominatim';
 
 const NOMINATIM_BASE_URL = 'https://nominatim.openstreetmap.org/search?'
-
 
 export default class SearchBar extends Control {
 

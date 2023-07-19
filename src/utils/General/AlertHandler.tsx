@@ -1,3 +1,15 @@
+/*
+Alert handlers
+
+CREATED BY JOVIN
+
+Contains functions relating to alerts
+
+  - ShowErrorAlert
+  - ShowDoneAlert
+  - ShowWarningAlert
+  - HideWarningAlert
+*/
 
 export async function ShowErrorAlert(e : string) {
     var alert = document.getElementById('ErrorAlert') as HTMLDivElement

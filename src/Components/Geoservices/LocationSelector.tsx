@@ -1,3 +1,11 @@
+/*
+Location Selector
+
+CREATED BY JOVIN
+
+HTML Elements for Geoservices
+*/
+
 import { Component, createSignal, onMount } from 'solid-js';
 // import 'leaflet/dist/leaflet.css';
 import { playground } from '../../App';
@@ -20,10 +28,8 @@ const LocationSelector: Component = () => {
       var utcdisp = document.getElementById('UTCDisplay') as HTMLElement
 
       // Configure buttons that do not have "button" tag manually for logging
-      const timeslider = document.getElementById("timeRange") as HTMLElement
-      const dateslider = document.getElementById("dateRange") as HTMLElement
-
-
+      // const timeslider = document.getElementById("timeRange") as HTMLElement
+      // const dateslider = document.getElementById("dateRange") as HTMLElement
       // configureElem(timeslider)
       // configureElem(dateslider)
 
@@ -39,7 +45,6 @@ const LocationSelector: Component = () => {
       <div>
         <div class="map ">
             <div id="map"> </div>
-            {/* <input type='text' id='ol-search-input' placeholder='Type here...'></input> */}
         </div>
         
       <div id="accordion-collapse-2" data-accordion="open" style="width: 400px; background-color: white">

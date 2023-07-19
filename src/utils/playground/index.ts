@@ -1,3 +1,15 @@
+/*
+Nominatim Service provider
+
+ADAPTED BY JOVIN
+ORIGINAL : UNKNOWN - CANT REMEMBER
+
+Functions created:
+  - sunpath functions
+  - details
+  - rendering camera (for still images)
+*/
+
 import * as THREE from 'three';
 import { DirectionalLightHelper } from 'three/src/helpers/DirectionalLightHelper';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -21,7 +33,6 @@ import Viewport from './utils/Viewport';
 import { Color } from 'three/src/math/Color';
 import { PI } from './utils/Number';
 import RAF from './utils/RAF';
-// import { SpeckleLoader } from "./utils/SpeckleLoader.js";
 import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass'
 import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
@@ -30,7 +41,6 @@ import { calculateDeclination, calculateHourAngle, Altitude, Azimuth } from './u
 import { Group, MeshBasicMaterial, MeshPhongMaterial, OrthographicCamera, Vector2 } from 'three';
 import { degToRad } from 'three/src/math/MathUtils';
 import {v4 as uuidv4} from 'uuid';
-// import DPMesh from '../Serialization/DPMesh';
 import * as SunCalc from 'suncalc3';
 
 

@@ -1,3 +1,11 @@
+/*
+Date Slider
+
+CREATED BY JOVIN
+
+Functions relating to changes in days and months (dates)
+*/
+
 import { Component, createSignal } from 'solid-js';
 import Playground from '../../utils/playground';
 
@@ -6,6 +14,19 @@ const [date, setDate] = createSignal<number>(1)
 const [doy, setDOY] = createSignal<number>(181)
 
 export function updateDate(playground_ : Playground) {
+  /*
+    Update inner HTML for date display
+    
+    Arguments:
+      - playground_ : Target Playground object
+
+    Returns:
+      -
+
+    Notes:
+      - 
+  */
+
     var output = document.querySelector('#dateShow') as HTMLInputElement
     output.innerHTML = `${playground_.Details.monthDay} ${playground_.Details.month}`
     const slider = document.querySelector('#dateRange') as HTMLInputElement
@@ -13,6 +34,19 @@ export function updateDate(playground_ : Playground) {
 }
 
 export function getDate(playground_ : Playground) {
+  /*
+    Get day and month from a day of year (doy) which is extracted from the dateRange input Element
+    
+    Arguments:
+      - playground_ : Target Playground object
+
+    Returns:
+      -
+
+    Notes:
+      - 
+  */
+
     const slider = document.querySelector('#dateRange') as HTMLInputElement
 
     // var playground_ = playground() as Playground

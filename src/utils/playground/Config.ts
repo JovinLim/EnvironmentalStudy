@@ -1,3 +1,10 @@
+/*
+Config for Playground class
+
+ADAPTED BY JOVIN
+ORIGINAL : UNKNOWN - CANT REMEMBER
+*/
+
 import { Vector2 } from 'three/src/math/Vector2';
 import { Vector3 } from 'three/src/math/Vector3';
 import { Euler } from 'three/src/math/Euler';
