@@ -1,8 +1,5 @@
-// import { scene } from '../App';
 import { Component, createSignal } from 'solid-js';
-// import { setDBStorage } from '../../utils/Storage/IndexedDBFunctions';
 import Playground from '../../utils/playground';
-// import SpeckleStream from './SpeckleStream';
 
 const [month, setMonth] = createSignal<String>("July")
 const [date, setDate] = createSignal<number>(1)
