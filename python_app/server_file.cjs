@@ -63,7 +63,6 @@ function getEPW(epw_url){
 	      fs.writeFileSync(filepath, bdata);
 	      resolve(filepath2)
 	      return filepath2;
-	      //console.log(info) 
 	    });
 
 	  });
