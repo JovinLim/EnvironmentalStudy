@@ -11,7 +11,7 @@ export default defineConfig({
     // devtools(),
     solidPlugin(),
   ],
-  base:"/SunpathDiagram/",
+  base:"/EnvironmentalStudy/",
   server: {
     port: 3000,
   },

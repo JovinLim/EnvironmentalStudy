@@ -49,3 +49,11 @@
 [2023-08-05 22:22:35,612] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
 [2023-08-05 22:22:36,791] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
 [2023-08-05 22:22:37,998] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-05 22:22:38,002] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-05 22:24:12,591] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-05 22:24:12,591] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-05 22:24:12,595] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\simulation\\ladybug\\radiation.py', reloading
+[2023-08-05 22:24:12,595] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\simulation\\ladybug\\radiation.py', reloading
+[2023-08-05 22:24:13,722] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-05 22:24:14,823] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-05 22:24:14,827] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
