@@ -57,3 +57,5 @@
 [2023-08-05 22:24:13,722] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
 [2023-08-05 22:24:14,823] {_internal.py:224} WARNING -  * Debugger is active!
 [2023-08-05 22:24:14,827] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-05 22:37:02,308] {server_app.py:44} INFO - 1
+[2023-08-05 22:37:02,309] {_internal.py:224} INFO - 127.0.0.1 - - [05/Aug/2023 22:37:02] "POST /test HTTP/1.1" 200 -
