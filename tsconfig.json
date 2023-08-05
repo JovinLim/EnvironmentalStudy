@@ -12,9 +12,41 @@
     "isolatedModules": true,
     "allowJs": true,
     "resolveJsonModule": true,
-    // "outDir": "out-tsc",
-    "rootDir": "./"
+    // "baseUrl": ".",
+    // "paths" : {
+    //   "@utils_Benchmarking/*" : [
+    //     "./src/utils/benchmarking/*",
+    //   ],
+    //   "@utils_EPW/*" : [
+    //     "./src/utils/EPW/*"
+    //   ],
+    //   "@utils_General/*" : [
+    //     "./src/utils/General/*"
+    //   ],
+    //   "@utils_Geoservice/*" : [
+    //     "./src/utils/Geoservice/*"
+    //   ],
+    //   "@utils_Playground" : [
+    //     "./src/utils/playground"
+    //   ],
+    //   "@utils_Serialization/*" : [
+    //     "./src/utils/Serialization/*"
+    //   ],
+    //   "@utils_Storage/*" : [
+    //     "./src/utils/Storage/*"
+    //   ],
+    //   "@Components_Geoservices/*" : [
+    //     "./src/Components/Geoservices/*"
+    //   ],
+    //   "@Components_LiveReports/*" : [
+    //     "./src/Components/LiveReports/*"
+    //   ],
+    //   "@Components_MainPage/*" : [
+    //     "./src/Components/MainPage/*"
+    //   ],
+    // }
   },
+  
   "include": [
     "./src/**/*.js",
     "./src/**/*.ts",

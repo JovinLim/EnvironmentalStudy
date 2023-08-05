@@ -1,3 +1,14 @@
+/*
+Sunpath Diagram Main Page
+
+CREATED BY JOVIN
+
+Canvas: 3D viewer for our scene which will contain a 3D sunpath diagram
+Import Model: Currently only accepts 3DM files
+Location: TO UPDATE AFTER CLICK
+Climate Information: TO UPDATE TO LINK TO PROPER SITE
+*/
+
 import { createSignal, type Component, onMount } from 'solid-js'
 import {v4 as uuidv4} from 'uuid'
 import './index.css'
@@ -7,13 +18,30 @@ import * as THREE from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 import LocationSelector from './Components/Geoservices/LocationSelector'
 import { buildMap } from './Components/Geoservices/OpenLayersMap.cjs'
+import { RhinoFileToCustomObject } from './utils/Serialization/Conversions/Rhino/RhinoConverter'
+import { addObjectsToScene } from './utils/Serialization/Conversions/ThreeJS/DPtoThreeJS'
+// import { createDatabase, createLogDatabase, setDBStorage } from './utils/Storage/IndexedDBFunctions'
 
+// Create signal to export the Playground object, allows access from different files
 export const [playground, setPlayground] = createSignal<Playground>()
 const reader = new FileReader()
 let fileRef: HTMLInputElement;
 let mtlRef: HTMLInputElement;
 
 export async function toggleOptionsList(container_id : string, chevron_id = ""){
+  /*
+    Toggling opening and closing a dropdown list
+    
+    Arguments:
+      - container_id : the id of HTMLDivElement as a string
+      - chevron_id : the id of SVG Element as a string
+
+    Returns:
+      -
+
+    Notes:
+      - If there is no chevron, code will ignore and only open and close dropdown list
+  */
   const container_ = document.getElementById(container_id) as HTMLDivElement
 
   if (container_.getAttribute("show") == "false"){
@@ -43,6 +71,19 @@ export async function toggleOptionsList(container_id : string, chevron_id = ""){
 }
 
 export async function InitializePlayground() {
+  /*
+    Initialize Playground object
+    
+    Arguments:
+      - 
+
+    Returns:
+      -
+
+    Notes:
+      - Creates an assigns a randomly generated UUID for the Playground object which will be used for any HTML elements associated with it
+        for future purposes when there needs to be more than one 3D viewer.
+  */
   const Uid = uuidv4()
   const canvasDiv = document.getElementById("canvas") as HTMLDivElement
   const playground_ = new Playground(canvasDiv)
@@ -54,53 +95,112 @@ export async function InitializePlayground() {
 
 }
 
-export async function processModel(model : THREE.Group | THREE.Object3D, playground_ : Playground) {
+export async function processModel(model : THREE.Group | THREE.Object3D, playground_ : Playground, context : string) {
 
-  // Rotating model to correct orientation
-  // model.rotateX(-Math.PI / 2);
 
   // Get sphere radius
   const sphereRad = playground_.Details.sphereRad
 
-  // Getting model size and center
   let center = new THREE.Vector3()
   let size = new THREE.Vector3()
-  let modelbox = new THREE.Box3().setFromObject(model)
-  modelbox.getSize(size)
 
-  // Testing scaling start
-  // if ((Math.max(size.x, size.y, size.z) > (sphereRad*2*0.6) )) {
-  //     var proportion = Math.min( (sphereRad * 2 * 0.6) / size.x, (sphereRad * 0.6) / size.y, (sphereRad * 2 * 0.6) / size.z)
-  // }
+  if (context === 'import') {
+      // Getting model size and center
+      let modelbox = new THREE.Box3().setFromObject(model)
+      modelbox.getSize(size)
 
-  // else {
-  //     var proportion = Math.max( (sphereRad * 2 * 0.6) / size.x, (sphereRad * 0.6) / size.y, (sphereRad * 2 * 0.6) / size.z)
-  // }
-  // Testing scaling end
-  
-  var proportion = Math.min( (sphereRad * 2 * 0.6) / size.x, (sphereRad * 0.6) / size.y, (sphereRad * 2 * 0.6) / size.z)
-  model.scale.set(proportion, proportion, proportion)
-  let modelbox2 = new THREE.Box3().setFromObject(model)
-  modelbox2.getCenter(center)
-  model.position.set(-center.x, -center.y, 0)
-  // model.position.set(-center.x, -center.y, -center.z)
+      var oCenter = new THREE.Vector3()
+      modelbox.getCenter(oCenter)
+
+      var bbox = new THREE.Mesh(new THREE.BoxGeometry(size.x, size.y, size.z))
+      bbox.name = 'bounding_box'
+      var bboxJSON = bbox.toJSON()
+      playground_.Details.boundingbox.geometry = bboxJSON
+      playground_.Details.boundingbox.center = oCenter
+
+      var proportion = Math.min( (sphereRad * 2 * 0.6) / size.x, (sphereRad * 0.6) / size.y, (sphereRad * 2 * 0.6) / size.z)
+      model.scale.set(proportion, proportion, proportion)
+      playground_.Details.modelScaling = proportion
+      let modelbox2 = new THREE.Box3().setFromObject(model)
+      modelbox2.getCenter(center)
+      model.position.set(-center.x, -center.y, 0)
+  }
+
+  else if (context === 'result') {
+      // Getting original bounding box of model with context
+      var obbox = new THREE.ObjectLoader().parse(playground_.Details.boundingbox.geometry)
+      var oCenter_ = playground_.Details.boundingbox.center as THREE.Vector3
+      obbox.position.set(oCenter_.x, oCenter_.y, oCenter_.z)
+      var group = new THREE.Group()
+      group.add(model)
+      group.add(obbox)
+
+      var position_ = new THREE.Vector3()
+
+      let modelbox = new THREE.Box3().setFromObject(group)
+      modelbox.getSize(size)
+
+      var proportion = Math.min( (sphereRad * 2 * 0.6) / size.x, (sphereRad * 0.6) / size.y, (sphereRad * 2 * 0.6) / size.z)
+      group.scale.set(proportion, proportion, proportion)
+      let modelbox2 = new THREE.Box3().setFromObject(group)
+      modelbox2.getCenter(center)
+      // console.log(center)
+      group.position.set(-center.x, -center.y, 0)
+      group.remove(obbox)
+      return group
+  }
+
 }
 
 export async function uploadModel(upload : HTMLInputElement, mtl_upload : HTMLInputElement, e : Event) {
+  /*
+    Uses javascript to click the upload button that opens up the file explorer for model input, put in this function in case there 
+    are any more functions to carry out when import model button is clicked
+    
+    Arguments:
+      - upload : Target HTMLInputElement for 3D model file
+      - mtl_upload : Target HTMLInputElement for material file if needed
+      - e : Click event
+
+    Returns:
+      -
+
+    Notes:
+      - 
+  */
   upload.click();
+}
+
+export async function testrad(){
+  // var response = await fetch('http://127.0.0.1:3002/test')
+  let request = {
+    method: 'POST',
+    // body: formData,
+  }
+  var response = await fetch('http://localhost:3245/test', request)
+  var result = await response.json()
+  console.log(result)
 }
 
 const App: Component = () => {
 
   onMount(() =>{
     InitializePlayground()
+  /*
+    1. Initialize playground
+    2. Build map
+    3. Add event listeners for files
+  */
+    // 1
+    // 2
     const mapDiv = document.querySelector('#map') as HTMLDivElement
     buildMap(mapDiv)
     
+    // 3
     var fileImport = document.getElementById('import_input_file') as HTMLInputElement
     var mtlImport = document.getElementById('import_input_mtl') as HTMLInputElement
 
-    fileImport.addEventListener('change', (event) => {
+    fileImport.addEventListener('change', async (event) => {
       if (fileImport.type == "file"){
         try {
           const playground_ = playground() as Playground
@@ -110,35 +210,18 @@ const App: Component = () => {
           if (fileType == '3dm'){
             let file = fileImport.files as FileList
             var rhinoURL = URL.createObjectURL(file[0])
-            const loader = new Rhino3dmLoader()
-            loader.setLibraryPath( 'https://cdn.jsdelivr.net/npm/rhino3dm@7.15.0/' )
-            loader.load(rhinoURL, 
-            function(obj : any) {
-              obj.traverse(function (child : THREE.Object3D) {
-                  if (child instanceof THREE.Mesh) {
-                    child.castShadow = true;
-                    var name = child.name != "" ? child.name : "Nameless"
-                    child.name = `Project_${Uid}_` + name
-                  }
-              });
-              obj.name = `Project_${Uid}_models`
-              processModel(obj, playground_)
-              playground_.scene.add(obj)
-              playground_.Details.fileBlob = file[0] as Blob
-              playground_.Details.mtlFile = 0
-              playground_.Details.objFile = 0
-              
-              // updatePlaygroundFileInfo(playground_, file)
-              // updateDownloadButton(playground_)
-              // c_playgrd = playground_;
-              // updateHTMLFileInfo(playground_)
-              playground_.Details.blayers = ''
-              playground_.Details.olayers = ''
-              // updateModelLayers(playground_, false)
-              fileImport.value = "";
-              mtlImport.value = "";
-              
-            })
+            playground_.Details.fileBlob = file[0] as Blob
+            playground_.Details.mtlFile = 0
+            playground_.Details.objFile = 0
+            await RhinoFileToCustomObject(playground_.Details)
+            await addObjectsToScene(playground_)
+            fileImport.value = "";
+            mtlImport.value = "";
+            playground_.Details.blayers = ''
+            playground_.Details.olayers = ''
+            playground_.Details.mtlFile = 0
+            playground_.Details.objFile = 0
+            // setDBStorage('App');
           }
 
           else if (fileType.toUpperCase() == 'OBJ'){
@@ -162,9 +245,6 @@ const App: Component = () => {
           //Remove previous groups if any
           const playground_ = playground() as Playground
           playground_.clearModel()
-          // var previousModel = playground_.scene.getObjectByName(`Project-${selectedDiv() as number}-models`) as THREE.Object3D
-          // playground_.scene.remove(previousModel)
-  
   
           let file = fileImport.files as FileList
           let mtlfile = mtlImport.files as FileList
@@ -187,7 +267,7 @@ const App: Component = () => {
                       }
                    });
                   obj.name = `Project_${Uid}_models`
-                  processModel(obj, playground_)
+                  processModel(obj, playground_, 'import')
                   playground_.scene.add(obj)
                   playground_.Details.blayers = ''
                   playground_.Details.olayers = ''
@@ -195,16 +275,11 @@ const App: Component = () => {
               }
           })
   
-          // storeFile(playground_)
           // updatePlaygroundFileInfo(playground_, file)
-          // updateDownloadButton(playground_)
           // c_playgrd = playground_;
-          // updateHTMLFileInfo(playground_)
           fileImport.value = "";
           mtlImport.value = "";
         })
-        // updateDownloadButton(c_playgrd)
-        // Update download button
   })
 
   return (
@@ -214,6 +289,9 @@ const App: Component = () => {
           <label>Import Model</label>
           <input type="file" id="import_input_file" name="filename" accept= ".obj, .3dm" ref={fileRef} hidden/>
           <input type="file" id="import_input_mtl" name="filename" accept= ".mtl" ref={mtlRef} hidden/>
+        </button>
+        <button id="import_button" onclick={(e) => testrad()} style="z-index:100" class="items-center text-center w-full border-b border-gray-400 p-5 font-medium text-gray-200 hover:bg-blue-800">
+          <label>Run Radiation Simulation</label>
         </button>
       </div>
       <div id="canvas" style="z-index:10;" class="canvas"></div>

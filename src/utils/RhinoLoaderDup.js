@@ -1,3 +1,7 @@
+/*
+ONLY FOR ME TO INSPECT THE RHINO LOADER FOR THREEJS
+*/
+
 import {
 	BufferGeometryLoader,
 	FileLoader,

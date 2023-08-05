@@ -1,20 +1,8 @@
-/*
-Nominatim Service provider
-
-ADAPTED BY JOVIN
-ORIGINAL : UNKNOWN - CANT REMEMBER
-
-Functions created:
-  - sunpath functions
-  - details
-  - rendering camera (for still images)
-*/
-
 import * as THREE from 'three';
 import { DirectionalLightHelper } from 'three/src/helpers/DirectionalLightHelper';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { PerspectiveCamera } from 'three/src/cameras/PerspectiveCamera';
-import { PCFSoftShadowMap, sRGBEncoding, SRGBColorSpace } from 'three/src/constants';
+import { PCFSoftShadowMap, sRGBEncoding } from 'three/src/constants';
 import { DirectionalLight } from 'three/src/lights/DirectionalLight';
 import { PlaneGeometry } from 'three/src/geometries/PlaneGeometry';
 import { WebGLRenderer } from 'three/src/renderers/WebGLRenderer';
@@ -36,13 +24,13 @@ import RAF from './utils/RAF';
 import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass'
 import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
-import { createEffect } from 'solid-js';
-import { calculateDeclination, calculateHourAngle, Altitude, Azimuth } from './utils/CalculateSunPath';
-import { Group, MeshBasicMaterial, MeshPhongMaterial, OrthographicCamera, Vector2 } from 'three';
+import { Group, MeshBasicMaterial} from 'three';
 import { degToRad } from 'three/src/math/MathUtils';
 import {v4 as uuidv4} from 'uuid';
 import * as SunCalc from 'suncalc3';
-
+import CustomObject from '../Serialization/Object/Object';
+import { convertToMonthAndDay } from '../../Components/Geoservices/DateSlider';
+import CustomMesh from '@utils_Serialization/Object/Geometry/CustomMesh';
 
 let white_mat = new THREE.MeshBasicMaterial({color: '#ffffff'});
 let ground_mat = new THREE.MeshStandardMaterial({color: '#9fb9e2', side: THREE.DoubleSide});
@@ -58,8 +46,7 @@ export default class Playground
   public img_export_aspect = 1920/1080
 
   public Details = {
-    Uid : <any> 0,
-    name : ``,
+    Uid : String(uuidv4()).replaceAll("-","_"),
     owner : '',
     fileInfo : { filename: '', filesize: '', filetype: ''},
     coords : { lat: 1.3521, lng: 103.8198 },
@@ -85,10 +72,21 @@ export default class Playground
     mtlFile: <any> 0,
     objFile: <any> 0,
     toSimulate: false,
-    // meshes : [] as DPMesh[],
     typology: "NIL",
     gfa: 0,
+    importKey: "",
+    job_key: "",
+    objects: [] as CustomObject[],
+    simObjects: [] as CustomMesh[],
     simulating: false,
+    buildingInfo : {
+      typology: "NIL",
+      gfa: 0,
+    },
+    sustainability_benchmark: "Mandatory",
+    boundingbox: {geometry:<any> 0, center: <any> 0},
+    modelScaling: 0,
+    simResultFolder : "Not Simulated",
   }
 
   private helper!: DirectionalLightHelper;
@@ -111,14 +109,11 @@ export default class Playground
   private ambient!: AmbientLight;
   private renderScene !: RenderPass;
   private bloomPass !: UnrealBloomPass;
-  // private speckle_loader = new SpeckleLoader();
   private elementDiv !: HTMLElement;
   private ground!: Mesh;
   private stats?: Stats;
   public viewport !: Viewport;
-  
 
-  
   public downloadables: String[] = [];
   public report_links: String[] = [];
   public image_links: String[] = [];
@@ -128,14 +123,14 @@ export default class Playground
                          "building": [] as THREE.Object3D[],
                          "AMPM": [] as THREE.Object3D[],
                          "Radiation": [] as THREE.Object3D[],
-                         "light":  new THREE.DirectionalLight
+                         "light":  new THREE.DirectionalLight,
+                         "sunpath":  new THREE.DirectionalLight
                         };
   
   // For each completed sim, generate a report
 
   public diagramGroup = new Group;
   private markingGroup = new Group;
-  private lightingGroup = new Group;
   private defaultUp = new THREE.Vector3(0,0,1) // Defining default up for scene
   public sunPos = { x: 0, y:0, z:0 }
 
@@ -167,7 +162,8 @@ export default class Playground
     this.viz_elements = {"building": [] as THREE.Object3D[],
                          "AMPM": [] as THREE.Object3D[],
                         "Radiation": [] as THREE.Object3D[],
-                        "light":  new THREE.DirectionalLight
+                        "light":  new THREE.DirectionalLight,
+                        "sunpath":  new THREE.DirectionalLight
                         };
   }
   private createScene (): void {
@@ -210,8 +206,6 @@ export default class Playground
     planCam.name = 'PlanCamera'
     planCam.up.copy(this.defaultUp)
     this.otherCameras.PlanCam = planCam
-
-
 
     // Creating West Camera
     const westCam = new THREE.PerspectiveCamera(fov, this.img_export_aspect, near, far)
@@ -272,21 +266,19 @@ export default class Playground
   private createLights (): void {
     const { ambient, directional } = Config.Lights;
 
-    if (this.lightingGroup.children.length > 0) {
-
-    }
-
-    else {
+    if (this.ambient == null || this.ambient == undefined) {
       this.ambient = new AmbientLight(ambient.color, ambient.intensity);
       this.directional = new DirectionalLight(directional.color, directional.intensity);
       this.helper = new DirectionalLightHelper(this.directional, directional.helper.size, directional.helper.color);
   
-      this.updateDirectional(directional);
+      // this.updateDirectional(directional);
+      // this.scene.add(this.directional);
       this.ambient.layers.enable(0)
       this.ambient.layers.set(0)
-      this.lightingGroup.add(this.ambient)
-      this.scene.add(this.lightingGroup);
+      this.scene.add(this.ambient);
+      // this.scene.add(this.helper);
     }
+
   }
 
   private createGround (): void {
@@ -307,6 +299,7 @@ export default class Playground
     this.renderer.setSize(this.viewport.size.width, this.viewport.size.height);
     this.renderer.shadowMap.type = PCFSoftShadowMap;
     this.renderer.setClearColor(Color.NAMES.BLACK, 0);
+    this.renderer.capabilities.logarithmicDepthBuffer = true
 
     this.renderer.setPixelRatio(devicePixelRatio);
     // this.renderer.outputEncoding = sRGBEncoding;
@@ -321,6 +314,7 @@ export default class Playground
     this.export_renderer.setSize(1920, 1080);
     this.export_renderer.shadowMap.type = PCFSoftShadowMap;
     this.export_renderer.setClearColor(Color.NAMES.BLACK, 0);
+    this.export_renderer.capabilities.logarithmicDepthBuffer = true
 
     this.export_renderer.setPixelRatio(devicePixelRatio);
     // this.export_renderer.outputEncoding = sRGBEncoding;
@@ -559,7 +553,9 @@ public calculateSunRoute = (latitude:number, longitude:number, UTC:number, day:n
 
 public calculateSunLocation = (r : number, altitude : number, azimuth : number, ) => {
   this.sunPos.x = -(this.Details.sphereRad  * Math.cos(altitude) * Math.sin(azimuth))
+  // this.sunPos.y = -(this.Details.sphereRad  * Math.cos(altitude) * Math.cos(azimuth))
   this.sunPos.y = (this.Details.sphereRad * Math.sin(altitude))
+  // this.sunPos.z = (this.Details.sphereRad * Math.sin(altitude))
   this.sunPos.z = -(this.Details.sphereRad  * Math.cos(altitude) * Math.cos(azimuth))
 }
 
@@ -601,7 +597,7 @@ public createHemisphere = (planes: THREE.Plane[]) => {
   const phiStart = 0
   const phiEnd = Math.PI * 2
   const thetaStart = 0
-  const thetaEnd = Math.PI
+  const thetaEnd = Math.PI / 2
   const color = new THREE.Color('#f5e687')
 
   const geometry = new THREE.SphereGeometry( this.Details.sphereRad, 32, 16, phiStart, phiEnd, thetaStart, thetaEnd )
@@ -610,6 +606,7 @@ public createHemisphere = (planes: THREE.Plane[]) => {
   sphere.name = "hemisphere"
 
   sphere.layers.set(0)
+  // this.scene.add(sphere)
   this.diagramGroup.add(sphere)
 
 }
@@ -897,19 +894,17 @@ private createAnalemma = () => {
       timings.push(i)
   }
 
-  for (let i = 1; i < 366; i+=1){
+  for (let i = 0; i < 365; i+=1){
       days.push(i)
   }
-
   for (let t = 0; t < timings.length; t++){
       var sunPosVectors = []
       for (let d = 0; d < days.length; d++){
-          var _dec = calculateDeclination(days[d])
-          var _hrAngle = calculateHourAngle(this.Details.UTC, days[d], this.Details.coords.lng, timings[t])
-          var _altitude = Altitude(this.Details.coords.lat, _hrAngle, _dec)
-          var _azimuth = Azimuth(this.Details.coords.lat, _hrAngle, _dec, _altitude)
-          var vec = new THREE.Vector3((this.Details.sphereRad  * Math.cos(_altitude) * Math.sin(_azimuth)), (this.Details.sphereRad  * Math.cos(_altitude) * Math.cos(_azimuth)), -(this.Details.sphereRad * Math.sin(_altitude)))
-          sunPosVectors.push(vec)
+        var [month_, day_] = convertToMonthAndDay(d)
+        var date = new Date(2023, month_, day_, timings[t], 0)
+        var SunPosition = SunCalc.getPosition(date, this.Details.coords.lat, this.Details.coords.lng)
+        var vec = new THREE.Vector3((this.Details.sphereRad  * Math.cos(SunPosition.altitude) * Math.sin(SunPosition.azimuth)), (this.Details.sphereRad  * Math.cos(SunPosition.altitude) * Math.cos(SunPosition.azimuth)), -(this.Details.sphereRad * Math.sin(SunPosition.altitude)))
+        sunPosVectors.push(vec)
       }
       sunPosVectors.push(sunPosVectors[0])
       const curve = new THREE.CatmullRomCurve3(sunPosVectors)
@@ -929,36 +924,34 @@ private createAnalemma = () => {
       var day = 0
       var color = '#424242'
       if (d == 0) {
-          day = 80
+          day = 50
           color = '#fbff00'
       }
 
       else if (d == 1){
-          day = 172
-          color = '#ff0000'
+          day = 140
+          color = '#0033ff'//'#ff0000'
       }
 
       else if (d==2){
-          day = 355
-          color = '#0033ff'
+          day = 328
+          color = '#ff0000'//'#0033ff'
       }
 
       //CREATING CURVES
       for (let t = 0; t <= timings.length; t++){
         if (t != timings.length) {
-          var _dec = calculateDeclination(day)
-          var _hrAngle = calculateHourAngle(this.Details.UTC, day, this.Details.coords.lng, timings[t])
-          var _altitude = Altitude(this.Details.coords.lat, _hrAngle, _dec)
-          var _azimuth = Azimuth(this.Details.coords.lat, _hrAngle, _dec, _altitude)
-          var vec = new THREE.Vector3(-(this.Details.sphereRad  * Math.cos(_altitude) * Math.sin(_azimuth)), (this.Details.sphereRad  * Math.cos(_altitude) * Math.cos(_azimuth)), -(this.Details.sphereRad * Math.sin(_altitude)))
+          var [month_, day_] = convertToMonthAndDay(day)
+          var date = new Date(2023, month_, day_, timings[t], 0)
+          var SunPosition = SunCalc.getPosition(date, this.Details.coords.lat, this.Details.coords.lng)
+          var vec = new THREE.Vector3((this.Details.sphereRad  * Math.cos(SunPosition.altitude) * Math.sin(SunPosition.azimuth)), (this.Details.sphereRad  * Math.cos(SunPosition.altitude) * Math.cos(SunPosition.azimuth)), -(this.Details.sphereRad * Math.sin(SunPosition.altitude)))
           sunPosVectors.push(vec)
         }
         else {
-          var _dec = calculateDeclination(day)
-          var _hrAngle = calculateHourAngle(this.Details.UTC, day, this.Details.coords.lng, timings[0])
-          var _altitude = Altitude(this.Details.coords.lat, _hrAngle, _dec)
-          var _azimuth = Azimuth(this.Details.coords.lat, _hrAngle, _dec, _altitude)
-          var vec = new THREE.Vector3(-(this.Details.sphereRad  * Math.cos(_altitude) * Math.sin(_azimuth)), (this.Details.sphereRad  * Math.cos(_altitude) * Math.cos(_azimuth)), -(this.Details.sphereRad * Math.sin(_altitude)))
+          var [month_, day_] = convertToMonthAndDay(day)
+          var date = new Date(2023, month_, day_, timings[0], 0)
+          var SunPosition = SunCalc.getPosition(date, this.Details.coords.lat, this.Details.coords.lng)
+          var vec = new THREE.Vector3((this.Details.sphereRad  * Math.cos(SunPosition.altitude) * Math.sin(SunPosition.azimuth)), (this.Details.sphereRad  * Math.cos(SunPosition.altitude) * Math.cos(SunPosition.azimuth)), -(this.Details.sphereRad * Math.sin(SunPosition.altitude)))
           sunPosVectors.push(vec)
         }
       }
@@ -971,32 +964,26 @@ private createAnalemma = () => {
       curveObj.name = `AnalemmaEdge${d+1}`
       curveObj.layers.set(0)
       this.diagramGroup.add(curveObj)
-
+      
       //CREATING CLIPPING PLANES
       if (d == 1) {
           const plane = new THREE.Plane
           plane.setFromCoplanarPoints(sunPosVectors[2], sunPosVectors[1], sunPosVectors[0])
-          // if (plane.normal.y > 0){
-          //     plane.setFromCoplanarPoints(sunPosVectors[0], sunPosVectors[1], sunPosVectors[2])
-          // }
+          if (plane.normal.z > 0){
+              plane.setFromCoplanarPoints(sunPosVectors[0], sunPosVectors[1], sunPosVectors[2])
+          }
           localPlanes.push( plane )
       }
 
       else if (d == 2) {
           const plane = new THREE.Plane
           plane.setFromCoplanarPoints(sunPosVectors[0], sunPosVectors[1], sunPosVectors[2])
-          // if (plane.normal.y < 0){
-          //     plane.setFromCoplanarPoints(sunPosVectors[0], sunPosVectors[1], sunPosVectors[2])
-          // }
+          if (plane.normal.z < 0){
+              plane.setFromCoplanarPoints(sunPosVectors[2], sunPosVectors[1], sunPosVectors[0])
+          }
           localPlanes.push( plane )
       }
   }
-  
-  this.createHemisphere(localPlanes)
-  // const axesHelper = new THREE.AxesHelper( 30 );
-  // axesHelper.setColors( ThreeColor.NAMES.blue , THREE.Color.NAMES.red, THREE.Color.NAMES.green)
-  // this.diagramGroup.add( axesHelper );
-
 }
 
 public redrawAnalemma = () => {

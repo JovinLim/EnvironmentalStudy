@@ -13,6 +13,42 @@ const [month, setMonth] = createSignal<String>("July")
 const [date, setDate] = createSignal<number>(1)
 const [doy, setDOY] = createSignal<number>(181)
 
+export function convertToMonthAndDay(number : number) : number[] {
+  if (number < 0 || number > 365) {
+    throw new Error("Number must be an integer between 0 and 365.");
+  }
+
+  const months = [
+    [1, 31],
+    [2, 28],
+    [3, 31],
+    [4, 30],
+    [5, 31],
+    [6, 30],
+    [7, 31],
+    [8, 31],
+    [9, 30],
+    [10, 31],
+    [11, 30],
+    [12, 31],
+  ];
+
+  try {
+    for (let i = 0; i < months.length; i++){
+      var days = months[i][1] as number
+      var month = months[i][0] as number
+      if (number < days) {
+        return [month, number + 1];
+      }
+      number -= days;
+    }
+  }
+
+  catch {
+    return [0]
+  }
+}
+
 export function updateDate(playground_ : Playground) {
   /*
     Update inner HTML for date display
