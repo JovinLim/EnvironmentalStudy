@@ -1,3 +1,4 @@
+import { builtinModules } from 'module';
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 // import devtools from 'solid-devtools/vite';
@@ -17,5 +18,8 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
+    commonjsOptions: {
+      ignore: [...builtinModules, "ws"],
+    }
   },
 });
