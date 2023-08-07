@@ -35,8 +35,10 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-      - name: Install dependencies
+      - name: Install node dependencies
         run: npm install
+      - name : Print live server
+        run: netstat -a
       - name: Build
         run: npm run build
       - name: Setup Pages
