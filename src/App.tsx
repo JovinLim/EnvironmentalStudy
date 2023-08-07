@@ -22,6 +22,9 @@ import { RhinoFileToCustomObject } from './utils/Serialization/Conversions/Rhino
 import { addObjectsToScene } from './utils/Serialization/Conversions/ThreeJS/DPtoThreeJS'
 // import { createDatabase, createLogDatabase, setDBStorage } from './utils/Storage/IndexedDBFunctions'
 
+
+let simulation_url = import.meta.env.VITE_FILE_HOST
+
 // Create signal to export the Playground object, allows access from different files
 export const [playground, setPlayground] = createSignal<Playground>()
 const reader = new FileReader()
@@ -172,12 +175,11 @@ export async function uploadModel(upload : HTMLInputElement, mtl_upload : HTMLIn
 }
 
 export async function testrad(){
-  // var response = await fetch('http://127.0.0.1:3002/test')
   let request = {
     method: 'POST',
     // body: formData,
   }
-  var response = await fetch('http://localhost:3245/test', request)
+  var response = await fetch(simulation_url + "/test", request)
   var result = await response.json()
   console.log(result)
 }

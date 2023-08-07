@@ -59,3 +59,529 @@
 [2023-08-05 22:24:14,827] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
 [2023-08-05 22:37:02,308] {server_app.py:44} INFO - 1
 [2023-08-05 22:37:02,309] {_internal.py:224} INFO - 127.0.0.1 - - [05/Aug/2023 22:37:02] "POST /test HTTP/1.1" 200 -
+[2023-08-07 21:21:42,486] {_internal.py:224} INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.10.202:3001
+[2023-08-07 21:21:42,487] {_internal.py:224} INFO - [33mPress CTRL+C to quit[0m
+[2023-08-07 21:21:42,497] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:21:43,532] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:21:43,536] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:46:52,447] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\flask\\__init__.py', reloading
+[2023-08-07 21:46:52,465] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\flask\\app.py', reloading
+[2023-08-07 21:46:52,526] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\flask\\scaffold.py', reloading
+[2023-08-07 21:46:52,557] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\flask\\helpers.py', reloading
+[2023-08-07 21:46:52,569] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\werkzeug\\wrappers\\__init__.py', reloading
+[2023-08-07 21:46:52,577] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\werkzeug\\wrappers\\response.py', reloading
+[2023-08-07 21:46:52,596] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\werkzeug\\sansio\\response.py', reloading
+[2023-08-07 21:46:52,607] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\flask\\globals.py', reloading
+[2023-08-07 21:46:52,859] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\flask\\sessions.py', reloading
+[2023-08-07 21:46:52,878] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\flask\\json\\tag.py', reloading
+[2023-08-07 21:46:52,909] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\flask\\config.py', reloading
+[2023-08-07 21:46:53,093] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:46:54,337] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:46:54,341] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:46:54,355] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\connector.py', reloading
+[2023-08-07 21:46:54,377] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\client_exceptions.py', reloading
+[2023-08-07 21:46:54,386] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\client_reqrep.py', reloading
+[2023-08-07 21:46:54,403] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\client_ws.py', reloading
+[2023-08-07 21:46:54,414] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\cookiejar.py', reloading
+[2023-08-07 21:46:54,428] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\formdata.py', reloading
+[2023-08-07 21:46:54,440] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\helpers.py', reloading
+[2023-08-07 21:46:54,459] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\http.py', reloading
+[2023-08-07 21:46:54,468] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\http_writer.py', reloading
+[2023-08-07 21:46:54,478] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\http_websocket.py', reloading
+[2023-08-07 21:46:54,493] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\multipart.py', reloading
+[2023-08-07 21:46:54,503] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\payload.py', reloading
+[2023-08-07 21:46:54,514] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\payload_streamer.py', reloading
+[2023-08-07 21:46:54,520] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\resolver.py', reloading
+[2023-08-07 21:46:54,529] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\streams.py', reloading
+[2023-08-07 21:46:54,537] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiohttp\\tracing.py', reloading
+[2023-08-07 21:46:54,545] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aioitertools\\__init__.py', reloading
+[2023-08-07 21:46:54,559] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiosqlite\\__init__.py', reloading
+[2023-08-07 21:46:54,574] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiosqlite\\core.py', reloading
+[2023-08-07 21:46:54,584] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\aiosqlite\\cursor.py', reloading
+[2023-08-07 21:46:54,589] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\alabaster\\__init__.py', reloading
+[2023-08-07 21:46:54,594] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\__init__.py', reloading
+[2023-08-07 21:46:54,602] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_compat.py', reloading
+[2023-08-07 21:46:54,609] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_eventloop.py', reloading
+[2023-08-07 21:46:54,621] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_exceptions.py', reloading
+[2023-08-07 21:46:54,627] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_fileio.py', reloading
+[2023-08-07 21:46:54,633] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_resources.py', reloading
+[2023-08-07 21:46:54,638] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_signals.py', reloading
+[2023-08-07 21:46:54,644] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_sockets.py', reloading
+[2023-08-07 21:46:54,654] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_streams.py', reloading
+[2023-08-07 21:46:54,660] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_subprocesses.py', reloading
+[2023-08-07 21:46:54,666] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_synchronization.py', reloading
+[2023-08-07 21:46:54,674] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_tasks.py', reloading
+[2023-08-07 21:46:54,679] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_testing.py', reloading
+[2023-08-07 21:46:54,685] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\_core\\_typedattr.py', reloading
+[2023-08-07 21:46:54,691] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\to_thread.py', reloading
+[2023-08-07 21:46:54,697] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\anyio\\from_thread.py', reloading
+[2023-08-07 21:46:54,705] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\argon2\\__init__.py', reloading
+[2023-08-07 21:46:54,709] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\argon2\\_legacy.py', reloading
+[2023-08-07 21:46:54,711] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\argon2\\_password_hasher.py', reloading
+[2023-08-07 21:46:54,713] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\argon2\\_utils.py', reloading
+[2023-08-07 21:46:54,714] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\argon2\\low_level.py', reloading
+[2023-08-07 21:46:54,722] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\arrow\\__init__.py', reloading
+[2023-08-07 21:46:54,727] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\arrow\\_version.py', reloading
+[2023-08-07 21:46:54,728] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\arrow\\api.py', reloading
+[2023-08-07 21:46:54,739] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\arrow\\arrow.py', reloading
+[2023-08-07 21:46:54,755] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\arrow\\factory.py', reloading
+[2023-08-07 21:46:54,758] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\arrow\\formatter.py', reloading
+[2023-08-07 21:46:54,765] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\arrow\\parser.py', reloading
+[2023-08-07 21:46:54,777] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\astroid\\__init__.py', reloading
+[2023-08-07 21:46:54,801] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\astropy\\__init__.py', reloading
+[2023-08-07 21:46:54,805] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\asttokens\\__init__.py', reloading
+[2023-08-07 21:46:54,810] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\async_timeout\\__init__.py', reloading
+[2023-08-07 21:46:54,817] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\atomicwrites\\__init__.py', reloading
+[2023-08-07 21:46:54,841] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\automat\\__init__.py', reloading
+[2023-08-07 21:46:54,848] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\automat\\_methodical.py', reloading
+[2023-08-07 21:46:54,855] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\automat\\_core.py', reloading
+[2023-08-07 21:46:54,856] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\backcall\\__init__.py', reloading
+[2023-08-07 21:46:54,862] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\bcrypt\\__init__.py', reloading
+[2023-08-07 21:46:54,870] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\bcrypt\\__about__.py', reloading
+[2023-08-07 21:46:54,873] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\binaryornot\\__init__.py', reloading
+[2023-08-07 21:46:54,881] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\black\\__init__.py', reloading
+[2023-08-07 21:46:54,909] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\blackd\\__init__.py', reloading
+[2023-08-07 21:46:54,912] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\blib2to3\\__init__.py', reloading
+[2023-08-07 21:46:54,918] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\bokeh\\__init__.py', reloading
+[2023-08-07 21:46:54,935] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\botocore\\__init__.py', reloading
+[2023-08-07 21:46:54,939] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\bottleneck\\__init__.py', reloading
+[2023-08-07 21:46:54,942] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\brotli\\__init__.py', reloading
+[2023-08-07 21:46:54,945] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\certifi\\__init__.py', reloading
+[2023-08-07 21:46:54,951] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\certifi\\core.py', reloading
+[2023-08-07 21:46:54,957] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\chardet\\__init__.py', reloading
+[2023-08-07 21:46:54,963] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\chardet\\universaldetector.py', reloading
+[2023-08-07 21:46:54,968] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\chardet\\version.py', reloading
+[2023-08-07 21:46:54,972] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\charset_normalizer\\__init__.py', reloading
+[2023-08-07 21:46:54,976] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\chart_studio\\__init__.py', reloading
+[2023-08-07 21:46:54,977] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\click\\__init__.py', reloading
+[2023-08-07 21:46:54,987] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\click\\core.py', reloading
+[2023-08-07 21:46:55,004] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\click\\decorators.py', reloading
+[2023-08-07 21:46:55,012] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\click\\exceptions.py', reloading
+[2023-08-07 21:46:55,018] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\click\\formatting.py', reloading
+[2023-08-07 21:46:55,023] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\click\\globals.py', reloading
+[2023-08-07 21:46:55,030] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\click\\parser.py', reloading
+[2023-08-07 21:46:55,040] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\click\\termui.py', reloading
+[2023-08-07 21:46:55,051] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\click\\types.py', reloading
+[2023-08-07 21:46:55,063] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\click\\utils.py', reloading
+[2023-08-07 21:46:55,070] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\cloudpickle\\__init__.py', reloading
+[2023-08-07 21:46:55,075] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\clr_loader\\__init__.py', reloading
+[2023-08-07 21:46:55,078] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\clr_loader\\types.py', reloading
+[2023-08-07 21:46:55,085] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\clr_loader\\util\\find.py', reloading
+[2023-08-07 21:46:55,087] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\clr_loader\\util\\runtime_spec.py', reloading
+[2023-08-07 21:46:55,109] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\colorcet\\__init__.py', reloading
+[2023-08-07 21:46:55,114] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\comm\\__init__.py', reloading
+[2023-08-07 21:46:55,120] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\constantly\\__init__.py', reloading
+[2023-08-07 21:46:55,127] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\constantly\\_constants.py', reloading
+[2023-08-07 21:46:55,135] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\contourpy\\__init__.py', reloading
+[2023-08-07 21:46:55,154] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\contourpy\\_version.py', reloading
+[2023-08-07 21:46:55,158] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\cookiecutter\\__init__.py', reloading
+[2023-08-07 21:46:55,161] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\cpuinfo\\__init__.py', reloading
+[2023-08-07 21:46:55,164] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\cryptography\\__init__.py', reloading
+[2023-08-07 21:46:55,169] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\cryptography\\__about__.py', reloading
+[2023-08-07 21:46:55,173] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\cssselect\\__init__.py', reloading
+[2023-08-07 21:46:55,179] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\curl\\__init__.py', reloading
+[2023-08-07 21:46:55,183] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\cytoolz\\__init__.py', reloading
+[2023-08-07 21:46:55,187] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\daal4py\\__init__.py', reloading
+[2023-08-07 21:46:55,190] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\dask\\__init__.py', reloading
+[2023-08-07 21:46:55,203] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\datasets\\__init__.py', reloading
+[2023-08-07 21:46:55,207] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\datashader\\__init__.py', reloading
+[2023-08-07 21:46:55,211] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\datashape\\__init__.py', reloading
+[2023-08-07 21:46:55,215] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\debugpy\\__init__.py', reloading
+[2023-08-07 21:46:55,222] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\defusedxml\\__init__.py', reloading
+[2023-08-07 21:46:55,229] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\defusedxml\\common.py', reloading
+[2023-08-07 21:46:55,241] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\diff_match_patch\\__init__.py', reloading
+[2023-08-07 21:46:55,246] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\dill\\__init__.py', reloading
+[2023-08-07 21:46:55,252] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\distributed\\__init__.py', reloading
+[2023-08-07 21:46:55,280] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\distributed\\_version.py', reloading
+[2023-08-07 21:46:55,286] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\distributed\\actor.py', reloading
+[2023-08-07 21:46:55,303] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\distributed\\client.py', reloading
+[2023-08-07 21:46:55,341] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\distributed\\core.py', reloading
+[2023-08-07 21:46:55,357] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\distributed\\comm\\__init__.py', reloading
+[2023-08-07 21:46:56,508] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:46:57,634] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:46:57,638] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:46:57,655] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pathspec\\_meta.py', reloading
+[2023-08-07 21:46:57,660] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\patsy\\__init__.py', reloading
+[2023-08-07 21:46:57,673] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pip\\__init__.py', reloading
+[2023-08-07 21:46:57,680] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\platformdirs\\__init__.py', reloading
+[2023-08-07 21:46:57,687] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\platformdirs\\api.py', reloading
+[2023-08-07 21:46:57,691] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\platformdirs\\version.py', reloading
+[2023-08-07 21:46:57,698] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\plotly\\__init__.py', reloading
+[2023-08-07 21:46:57,713] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\plotly\\version.py', reloading
+[2023-08-07 21:46:57,716] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ply\\__init__.py', reloading
+[2023-08-07 21:46:57,722] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pooch\\__init__.py', reloading
+[2023-08-07 21:46:57,725] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\poyo\\__init__.py', reloading
+[2023-08-07 21:46:57,730] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\poyo\\exceptions.py', reloading
+[2023-08-07 21:46:57,736] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\poyo\\parser.py', reloading
+[2023-08-07 21:46:57,741] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prometheus_client\\__init__.py', reloading
+[2023-08-07 21:46:57,752] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prometheus_client\\exposition.py', reloading
+[2023-08-07 21:46:57,760] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prometheus_client\\asgi.py', reloading
+[2023-08-07 21:46:57,765] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prometheus_client\\gc_collector.py', reloading
+[2023-08-07 21:46:57,771] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prometheus_client\\metrics.py', reloading
+[2023-08-07 21:46:57,779] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prometheus_client\\metrics_core.py', reloading
+[2023-08-07 21:46:57,780] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prometheus_client\\platform_collector.py', reloading
+[2023-08-07 21:46:57,781] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prometheus_client\\process_collector.py', reloading
+[2023-08-07 21:46:57,782] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prometheus_client\\registry.py', reloading
+[2023-08-07 21:46:57,788] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prompt_toolkit\\__init__.py', reloading
+[2023-08-07 21:46:57,795] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prompt_toolkit\\application\\__init__.py', reloading
+[2023-08-07 21:46:57,802] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prompt_toolkit\\application\\application.py', reloading
+[2023-08-07 21:46:57,831] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prompt_toolkit\\formatted_text\\__init__.py', reloading
+[2023-08-07 21:46:57,836] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prompt_toolkit\\formatted_text\\ansi.py', reloading
+[2023-08-07 21:46:57,843] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prompt_toolkit\\formatted_text\\html.py', reloading
+[2023-08-07 21:46:57,848] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prompt_toolkit\\shortcuts\\__init__.py', reloading
+[2023-08-07 21:46:57,856] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prompt_toolkit\\shortcuts\\prompt.py', reloading
+[2023-08-07 21:46:57,875] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\prompt_toolkit\\shortcuts\\utils.py', reloading
+[2023-08-07 21:46:57,882] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ptyprocess\\__init__.py', reloading
+[2023-08-07 21:46:57,885] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pure_eval\\__init__.py', reloading
+[2023-08-07 21:46:57,892] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyarrow\\__init__.py', reloading
+[2023-08-07 21:46:57,896] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyasn1_modules\\__init__.py', reloading
+[2023-08-07 21:46:57,901] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pycparser\\__init__.py', reloading
+[2023-08-07 21:46:57,906] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyct\\__init__.py', reloading
+[2023-08-07 21:46:57,910] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pydispatch\\__init__.py', reloading
+[2023-08-07 21:46:57,913] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pydocstyle\\__init__.py', reloading
+[2023-08-07 21:46:57,919] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pylint\\__init__.py', reloading
+[2023-08-07 21:46:57,925] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pylint\\__pkginfo__.py', reloading
+[2023-08-07 21:46:57,929] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pylsp\\__init__.py', reloading
+[2023-08-07 21:46:57,936] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pylsp\\_version.py', reloading
+[2023-08-07 21:46:57,940] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pylsp_jsonrpc\\__init__.py', reloading
+[2023-08-07 21:46:57,944] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyls_spyder\\__init__.py', reloading
+[2023-08-07 21:46:57,949] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyparsing\\__init__.py', reloading
+[2023-08-07 21:46:57,955] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyparsing\\util.py', reloading
+[2023-08-07 21:46:57,961] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyparsing\\exceptions.py', reloading
+[2023-08-07 21:46:57,967] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyparsing\\actions.py', reloading
+[2023-08-07 21:46:57,974] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyparsing\\results.py', reloading
+[2023-08-07 21:46:57,995] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyparsing\\helpers.py', reloading
+[2023-08-07 21:46:58,015] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyparsing\\unicode.py', reloading
+[2023-08-07 21:46:58,103] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\PyQt5\\__init__.py', reloading
+[2023-08-07 21:46:58,117] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pytest\\__init__.py', reloading
+[2023-08-07 21:46:58,141] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\__init__.py', reloading
+[2023-08-07 21:46:58,144] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\_version.py', reloading
+[2023-08-07 21:46:58,148] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\_code\\__init__.py', reloading
+[2023-08-07 21:46:58,154] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\_code\\code.py', reloading
+[2023-08-07 21:46:58,166] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\assertion\\__init__.py', reloading
+[2023-08-07 21:46:58,174] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\cacheprovider.py', reloading
+[2023-08-07 21:46:58,181] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\capture.py', reloading
+[2023-08-07 21:46:58,191] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\config\\__init__.py', reloading
+[2023-08-07 21:46:58,200] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\config\\exceptions.py', reloading
+[2023-08-07 21:46:58,206] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\config\\argparsing.py', reloading
+[2023-08-07 21:46:58,213] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\doctest.py', reloading
+[2023-08-07 21:46:58,223] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\fixtures.py', reloading
+[2023-08-07 21:46:58,232] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\freeze_support.py', reloading
+[2023-08-07 21:46:58,238] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\legacypath.py', reloading
+[2023-08-07 21:46:58,249] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\logging.py', reloading
+[2023-08-07 21:46:58,257] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\main.py', reloading
+[2023-08-07 21:46:58,283] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\mark\\__init__.py', reloading
+[2023-08-07 21:46:58,291] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\mark\\structures.py', reloading
+[2023-08-07 21:46:58,298] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\monkeypatch.py', reloading
+[2023-08-07 21:46:58,304] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\nodes.py', reloading
+[2023-08-07 21:46:58,311] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\outcomes.py', reloading
+[2023-08-07 21:46:58,319] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\pytester.py', reloading
+[2023-08-07 21:46:58,330] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\python.py', reloading
+[2023-08-07 21:46:58,340] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\python_api.py', reloading
+[2023-08-07 21:46:58,348] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\recwarn.py', reloading
+[2023-08-07 21:46:58,354] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\reports.py', reloading
+[2023-08-07 21:46:58,361] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\runner.py', reloading
+[2023-08-07 21:46:58,365] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\stash.py', reloading
+[2023-08-07 21:46:58,374] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\terminal.py', reloading
+[2023-08-07 21:46:58,385] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\tmpdir.py', reloading
+[2023-08-07 21:46:58,391] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\_pytest\\warning_types.py', reloading
+[2023-08-07 21:46:58,398] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pythonnet\\__init__.py', reloading
+[2023-08-07 21:46:58,404] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pytoolconfig\\__init__.py', reloading
+[2023-08-07 21:46:58,416] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pytoolconfig\\fields.py', reloading
+[2023-08-07 21:46:58,421] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pytoolconfig\\pytoolconfig.py', reloading
+[2023-08-07 21:46:58,429] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pytoolconfig\\types.py', reloading
+[2023-08-07 21:46:58,434] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\__init__.py', reloading
+[2023-08-07 21:46:58,449] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\__init__.py', reloading
+[2023-08-07 21:46:58,456] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\utilities\\__init__.py', reloading
+[2023-08-07 21:46:58,464] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\cell.py', reloading
+[2023-08-07 21:46:58,473] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\celltype.py', reloading
+[2023-08-07 21:46:58,481] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\composite.py', reloading
+[2023-08-07 21:46:58,492] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\dataset.py', reloading
+[2023-08-07 21:46:58,501] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\dataobject.py', reloading
+[2023-08-07 21:46:58,509] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\datasetattributes.py', reloading
+[2023-08-07 21:46:58,517] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\errors.py', reloading
+[2023-08-07 21:46:58,523] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\filters\\__init__.py', reloading
+[2023-08-07 21:46:58,531] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\filters\\composite.py', reloading
+[2023-08-07 21:46:58,546] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\filters\\data_set.py', reloading
+[2023-08-07 21:46:58,563] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\filters\\image_data.py', reloading
+[2023-08-07 21:46:58,573] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\filters\\poly_data.py', reloading
+[2023-08-07 21:46:58,583] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\filters\\unstructured_grid.py', reloading
+[2023-08-07 21:46:58,590] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\grid.py', reloading
+[2023-08-07 21:46:58,598] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\objects.py', reloading
+[2023-08-07 21:46:58,607] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\pointset.py', reloading
+[2023-08-07 21:46:58,615] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\pyvista_ndarray.py', reloading
+[2023-08-07 21:46:58,622] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\utilities\\arrays.py', reloading
+[2023-08-07 21:46:58,629] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\utilities\\cells.py', reloading
+[2023-08-07 21:46:58,635] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\utilities\\features.py', reloading
+[2023-08-07 21:46:58,642] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\utilities\\fileio.py', reloading
+[2023-08-07 21:46:58,654] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\utilities\\geometric_objects.py', reloading
+[2023-08-07 21:46:59,804] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:47:00,903] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:47:00,907] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:47:00,922] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\polys\\orthopolys.py', reloading
+[2023-08-07 21:47:00,927] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\polys\\partfrac.py', reloading
+[2023-08-07 21:47:00,933] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\polys\\polyoptions.py', reloading
+[2023-08-07 21:47:00,941] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\polys\\rings.py', reloading
+[2023-08-07 21:47:00,955] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\polys\\fields.py', reloading
+[2023-08-07 21:47:00,963] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\series\\__init__.py', reloading
+[2023-08-07 21:47:00,968] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\series\\order.py', reloading
+[2023-08-07 21:47:00,976] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\series\\limits.py', reloading
+[2023-08-07 21:47:00,985] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\series\\gruntz.py', reloading
+[2023-08-07 21:47:00,992] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\series\\approximants.py', reloading
+[2023-08-07 21:47:00,997] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\series\\residues.py', reloading
+[2023-08-07 21:47:01,003] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\series\\sequences.py', reloading
+[2023-08-07 21:47:01,013] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\series\\fourier.py', reloading
+[2023-08-07 21:47:01,021] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\series\\formal.py', reloading
+[2023-08-07 21:47:01,032] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\series\\limitseq.py', reloading
+[2023-08-07 21:47:01,039] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\__init__.py', reloading
+[2023-08-07 21:47:01,054] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\combinatorial\\factorials.py', reloading
+[2023-08-07 21:47:01,063] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\combinatorial\\numbers.py', reloading
+[2023-08-07 21:47:01,074] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\elementary\\miscellaneous.py', reloading
+[2023-08-07 21:47:01,083] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\elementary\\complexes.py', reloading
+[2023-08-07 21:47:01,094] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\elementary\\trigonometric.py', reloading
+[2023-08-07 21:47:01,108] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\elementary\\exponential.py', reloading
+[2023-08-07 21:47:01,118] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\elementary\\hyperbolic.py', reloading
+[2023-08-07 21:47:01,128] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\elementary\\integers.py', reloading
+[2023-08-07 21:47:01,136] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\elementary\\piecewise.py', reloading
+[2023-08-07 21:47:01,146] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\error_functions.py', reloading
+[2023-08-07 21:47:01,159] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\gamma_functions.py', reloading
+[2023-08-07 21:47:01,167] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\zeta_functions.py', reloading
+[2023-08-07 21:47:01,174] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\tensor_functions.py', reloading
+[2023-08-07 21:47:01,180] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\singularity_functions.py', reloading
+[2023-08-07 21:47:01,187] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\delta_functions.py', reloading
+[2023-08-07 21:47:01,193] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\bsplines.py', reloading
+[2023-08-07 21:47:01,201] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\bessel.py', reloading
+[2023-08-07 21:47:01,209] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\hyper.py', reloading
+[2023-08-07 21:47:01,219] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\polynomials.py', reloading
+[2023-08-07 21:47:01,226] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\spherical_harmonics.py', reloading
+[2023-08-07 21:47:01,232] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\elliptic_integrals.py', reloading
+[2023-08-07 21:47:01,239] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\beta_functions.py', reloading
+[2023-08-07 21:47:01,247] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\functions\\special\\mathieu_functions.py', reloading
+[2023-08-07 21:47:01,253] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\ntheory\\__init__.py', reloading
+[2023-08-07 21:47:01,260] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\ntheory\\generate.py', reloading
+[2023-08-07 21:47:01,267] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\ntheory\\primetest.py', reloading
+[2023-08-07 21:47:01,276] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\ntheory\\factor_.py', reloading
+[2023-08-07 21:47:01,285] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\ntheory\\partitions_.py', reloading
+[2023-08-07 21:47:01,292] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\ntheory\\residue_ntheory.py', reloading
+[2023-08-07 21:47:01,299] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\ntheory\\multinomial.py', reloading
+[2023-08-07 21:47:01,304] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\ntheory\\continued_fraction.py', reloading
+[2023-08-07 21:47:01,311] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\ntheory\\egyptian_fraction.py', reloading
+[2023-08-07 21:47:01,317] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\concrete\\__init__.py', reloading
+[2023-08-07 21:47:01,322] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\concrete\\products.py', reloading
+[2023-08-07 21:47:01,330] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\concrete\\summations.py', reloading
+[2023-08-07 21:47:01,341] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\discrete\\__init__.py', reloading
+[2023-08-07 21:47:01,346] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\discrete\\transforms.py', reloading
+[2023-08-07 21:47:01,353] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\discrete\\convolutions.py', reloading
+[2023-08-07 21:47:01,359] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\__init__.py', reloading
+[2023-08-07 21:47:01,367] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\simplify.py', reloading
+[2023-08-07 21:47:01,383] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\fu.py', reloading
+[2023-08-07 21:47:01,393] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\sqrtdenest.py', reloading
+[2023-08-07 21:47:01,400] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\cse_main.py', reloading
+[2023-08-07 21:47:01,408] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\epathtools.py', reloading
+[2023-08-07 21:47:01,417] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\hyperexpand.py', reloading
+[2023-08-07 21:47:01,429] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\radsimp.py', reloading
+[2023-08-07 21:47:01,440] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\trigsimp.py', reloading
+[2023-08-07 21:47:01,448] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\powsimp.py', reloading
+[2023-08-07 21:47:01,454] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\combsimp.py', reloading
+[2023-08-07 21:47:01,460] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\gammasimp.py', reloading
+[2023-08-07 21:47:01,465] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\simplify\\ratsimp.py', reloading
+[2023-08-07 21:47:01,471] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\sets\\__init__.py', reloading
+[2023-08-07 21:47:01,479] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\sets\\sets.py', reloading
+[2023-08-07 21:47:01,490] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\sets\\fancysets.py', reloading
+[2023-08-07 21:47:01,496] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\sets\\contains.py', reloading
+[2023-08-07 21:47:01,502] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\sets\\conditionset.py', reloading
+[2023-08-07 21:47:01,507] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\sets\\ordinals.py', reloading
+[2023-08-07 21:47:01,512] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\sets\\powerset.py', reloading
+[2023-08-07 21:47:01,518] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\__init__.py', reloading
+[2023-08-07 21:47:01,528] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\solvers.py', reloading
+[2023-08-07 21:47:01,542] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\core\\assumptions.py', reloading
+[2023-08-07 21:47:01,548] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\diophantine\\__init__.py', reloading
+[2023-08-07 21:47:01,557] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\diophantine\\diophantine.py', reloading
+[2023-08-07 21:47:01,570] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\recurr.py', reloading
+[2023-08-07 21:47:01,579] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\ode\\__init__.py', reloading
+[2023-08-07 21:47:01,585] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\ode\\subscheck.py', reloading
+[2023-08-07 21:47:01,596] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\ode\\ode.py', reloading
+[2023-08-07 21:47:01,608] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\polysys.py', reloading
+[2023-08-07 21:47:01,615] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\pde.py', reloading
+[2023-08-07 21:47:01,622] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\deutils.py', reloading
+[2023-08-07 21:47:01,628] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\inequalities.py', reloading
+[2023-08-07 21:47:01,637] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\decompogen.py', reloading
+[2023-08-07 21:47:01,647] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\solvers\\solveset.py', reloading
+[2023-08-07 21:47:01,659] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\__init__.py', reloading
+[2023-08-07 21:47:01,666] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\common.py', reloading
+[2023-08-07 21:47:01,679] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\dense.py', reloading
+[2023-08-07 21:47:01,687] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\matrices.py', reloading
+[2023-08-07 21:47:01,698] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\sparse.py', reloading
+[2023-08-07 21:47:01,704] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\sparsetools.py', reloading
+[2023-08-07 21:47:01,709] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\immutable.py', reloading
+[2023-08-07 21:47:01,717] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\__init__.py', reloading
+[2023-08-07 21:47:01,723] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\slice.py', reloading
+[2023-08-07 21:47:01,729] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\blockmatrix.py', reloading
+[2023-08-07 21:47:01,745] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\funcmatrix.py', reloading
+[2023-08-07 21:47:01,750] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\special.py', reloading
+[2023-08-07 21:47:01,757] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\inverse.py', reloading
+[2023-08-07 21:47:01,767] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\matadd.py', reloading
+[2023-08-07 21:47:01,774] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\matmul.py', reloading
+[2023-08-07 21:47:01,782] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\matpow.py', reloading
+[2023-08-07 21:47:01,788] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\matexpr.py', reloading
+[2023-08-07 21:47:01,794] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\trace.py', reloading
+[2023-08-07 21:47:01,799] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\transpose.py', reloading
+[2023-08-07 21:47:01,803] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\adjoint.py', reloading
+[2023-08-07 21:47:01,808] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\hadamard.py', reloading
+[2023-08-07 21:47:01,814] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\determinant.py', reloading
+[2023-08-07 21:47:01,819] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\diagonal.py', reloading
+[2023-08-07 21:47:01,824] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\dotproduct.py', reloading
+[2023-08-07 21:47:01,831] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\kronecker.py', reloading
+[2023-08-07 21:47:01,837] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\matrices\\expressions\\permutation.py', reloading
+[2023-08-07 21:47:01,843] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\geometry\\__init__.py', reloading
+[2023-08-07 21:47:01,859] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\geometry\\point.py', reloading
+[2023-08-07 21:47:01,867] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\geometry\\line.py', reloading
+[2023-08-07 21:47:01,875] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\geometry\\plane.py', reloading
+[2023-08-07 21:47:01,881] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\geometry\\ellipse.py', reloading
+[2023-08-07 21:47:01,889] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\geometry\\polygon.py', reloading
+[2023-08-07 21:47:01,896] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\geometry\\util.py', reloading
+[2023-08-07 21:47:01,901] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\geometry\\exceptions.py', reloading
+[2023-08-07 21:47:01,906] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\geometry\\curve.py', reloading
+[2023-08-07 21:47:01,914] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\geometry\\parabola.py', reloading
+[2023-08-07 21:47:01,919] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\sympy\\utilities\\__init__.py', reloading
+[2023-08-07 21:47:03,064] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:47:04,161] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:47:04,165] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:47:37,202] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Scripts\\pip-script.py', reloading
+[2023-08-07 21:47:37,311] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pip\\_vendor\\pyparsing\\core.py', reloading
+[2023-08-07 21:47:37,346] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pip\\_vendor\\packaging\\markers.py', reloading
+[2023-08-07 21:47:38,640] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:47:39,730] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:47:39,734] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:47:40,080] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\setuptools\\installer.py', reloading
+[2023-08-07 21:47:40,087] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\subprocess.py', reloading
+[2023-08-07 21:47:40,095] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\setuptools\\dist.py', reloading
+[2023-08-07 21:47:40,105] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pkg_resources\\__init__.py', reloading
+[2023-08-07 21:47:41,286] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:47:42,328] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:47:42,331] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:52:48,269] {_internal.py:224} INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.10.202:3001
+[2023-08-07 21:52:48,269] {_internal.py:224} INFO - [33mPress CTRL+C to quit[0m
+[2023-08-07 21:52:48,275] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:52:49,364] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:52:49,368] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:53:48,378] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\logging\\__init__.py', reloading
+[2023-08-07 21:53:49,514] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:53:50,564] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:53:50,568] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:54:03,651] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-07 21:54:03,662] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-07 21:54:03,663] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-07 21:54:04,826] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:55:59,147] {_internal.py:224} INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.10.202:3001
+[2023-08-07 21:55:59,147] {_internal.py:224} INFO - [33mPress CTRL+C to quit[0m
+[2023-08-07 21:55:59,153] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:56:00,211] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:56:00,214] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:56:20,535] {server_app.py:45} INFO - 1
+[2023-08-07 21:56:20,535] {server_app.py:47} INFO - OrderedDict([('TESTING', 'true'), ('HOSTIP', '127.0.0.1'), ('SF_PORT', '3245'), ('PYS_PORT', '3001')])
+[2023-08-07 21:56:20,536] {_internal.py:224} INFO - 127.0.0.1 - - [07/Aug/2023 21:56:20] "POST /test HTTP/1.1" 200 -
+[2023-08-07 21:56:28,678] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-07 21:56:28,678] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-07 21:56:29,878] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:56:31,081] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:56:31,085] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:56:34,305] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-07 21:56:34,311] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-07 21:56:34,311] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-07 21:56:35,497] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:56:36,603] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:56:36,607] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 21:59:17,680] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-07 21:59:17,681] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_app.py', reloading
+[2023-08-07 21:59:18,937] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 21:59:20,000] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 21:59:20,003] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 22:05:09,167] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\io.py', reloading
+[2023-08-07 22:05:09,182] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\urllib\\request.py', reloading
+[2023-08-07 22:05:09,261] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\re.py', reloading
+[2023-08-07 22:05:09,272] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry2d\\__init__.py', reloading
+[2023-08-07 22:05:09,279] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry2d\\mesh.py', reloading
+[2023-08-07 22:05:09,297] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry3d\\line.py', reloading
+[2023-08-07 22:05:09,307] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry3d\\_1d.py', reloading
+[2023-08-07 22:05:09,319] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry3d\\face.py', reloading
+[2023-08-07 22:05:09,351] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry3d\\_2d.py', reloading
+[2023-08-07 22:05:09,359] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug\\dt.py', reloading
+[2023-08-07 22:05:09,370] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug\\sunpath.py', reloading
+[2023-08-07 22:05:09,407] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_radiance\\study\\directsun.py', reloading
+[2023-08-07 22:05:09,449] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\numpy\\_typing\\__init__.py', reloading
+[2023-08-07 22:05:09,459] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\numpy\\_typing\\_dtype_like.py', reloading
+[2023-08-07 22:05:09,467] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\numpy\\_typing\\_generic_alias.py', reloading
+[2023-08-07 22:05:09,476] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\numpy\\_typing\\_shape.py', reloading
+[2023-08-07 22:05:09,486] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\numpy\\_typing\\_array_like.py', reloading
+[2023-08-07 22:05:09,493] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\numpy\\_typing\\_nested_sequence.py', reloading
+[2023-08-07 22:05:09,530] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\core\\_vtk_core.py', reloading
+[2023-08-07 22:05:10,705] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 22:05:11,858] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 22:05:11,862] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 22:05:11,936] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\numpy\\_version.py', reloading
+[2023-08-07 22:05:12,147] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\numpy\\core\\umath.py', reloading
+[2023-08-07 22:05:12,246] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry2d\\ray.py', reloading
+[2023-08-07 22:05:12,251] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry2d\\_1d.py', reloading
+[2023-08-07 22:05:12,261] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry2d\\line.py', reloading
+[2023-08-07 22:05:12,272] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\intersection2d.py', reloading
+[2023-08-07 22:05:12,281] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry2d\\arc.py', reloading
+[2023-08-07 22:05:12,306] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry2d\\polyline.py', reloading
+[2023-08-07 22:05:12,312] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry2d\\_2d.py', reloading
+[2023-08-07 22:05:12,322] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\_polyline.py', reloading
+[2023-08-07 22:05:12,331] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry2d\\polygon.py', reloading
+[2023-08-07 22:05:12,393] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\triangulation.py', reloading
+[2023-08-07 22:05:12,415] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\boolean.py', reloading
+[2023-08-07 22:05:12,627] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry3d\\ray.py', reloading
+[2023-08-07 22:05:12,645] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry3d\\arc.py', reloading
+[2023-08-07 22:05:12,681] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry3d\\polyline.py', reloading
+[2023-08-07 22:05:12,695] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\intersection3d.py', reloading
+[2023-08-07 22:05:12,788] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\interop\\stl.py', reloading
+[2023-08-07 22:05:12,837] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry3d\\polyface.py', reloading
+[2023-08-07 22:05:12,877] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry3d\\sphere.py', reloading
+[2023-08-07 22:05:12,886] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ladybug_geometry\\geometry3d\\cone.py', reloading
+[2023-08-07 22:05:14,021] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 22:05:15,144] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 22:05:15,147] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 22:05:15,307] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\vtkmodules\\util\\vtkAlgorithm.py', reloading
+[2023-08-07 22:05:16,017] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\IPython\\display.py', reloading
+[2023-08-07 22:05:16,027] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\IPython\\core\\display_functions.py', reloading
+[2023-08-07 22:05:16,037] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\IPython\\lib\\display.py', reloading
+[2023-08-07 22:05:16,086] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\jupyter\\__init__.py', reloading
+[2023-08-07 22:05:16,103] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\IPython\\__init__.py', reloading
+[2023-08-07 22:05:16,121] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\jupyter\\pv_ipygany.py', reloading
+[2023-08-07 22:05:16,131] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\pyvista\\trame\\jupyter.py', reloading
+[2023-08-07 22:05:16,146] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ipywidgets\\widgets\\__init__.py', reloading
+[2023-08-07 22:05:16,153] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ipywidgets\\widgets\\widget_string.py', reloading
+[2023-08-07 22:05:16,162] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ipywidgets\\widgets\\widget_description.py', reloading
+[2023-08-07 22:05:16,167] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\.conda\\envs\\py310\\Lib\\site-packages\\ipywidgets\\widgets\\domwidget.py', reloading
+[2023-08-07 22:05:17,317] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 22:05:18,478] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 22:05:18,482] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 22:10:32,359] {server_app.py:45} INFO - 1
+[2023-08-07 22:10:32,360] {_internal.py:224} INFO - 127.0.0.1 - - [07/Aug/2023 22:10:32] "POST /test HTTP/1.1" 200 -
+[2023-08-07 22:10:45,470] {server_app.py:45} INFO - 1
+[2023-08-07 22:10:45,471] {_internal.py:224} INFO - 127.0.0.1 - - [07/Aug/2023 22:10:45] "POST /test HTTP/1.1" 200 -
+[2023-08-07 22:11:56,675] {server_app.py:45} INFO - 1
+[2023-08-07 22:11:56,675] {_internal.py:224} INFO - 127.0.0.1 - - [07/Aug/2023 22:11:56] "POST /test HTTP/1.1" 200 -
+[2023-08-07 22:11:57,597] {server_app.py:45} INFO - 1
+[2023-08-07 22:11:57,598] {_internal.py:224} INFO - 127.0.0.1 - - [07/Aug/2023 22:11:57] "POST /test HTTP/1.1" 200 -
+[2023-08-07 22:18:20,480] {_internal.py:224} INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.10.202:3001
+[2023-08-07 22:18:20,481] {_internal.py:224} INFO - [33mPress CTRL+C to quit[0m
+[2023-08-07 22:18:20,487] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-07 22:18:21,560] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-07 22:18:21,564] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-07 22:18:44,453] {server_app.py:45} INFO - 1
+[2023-08-07 22:18:44,454] {_internal.py:224} INFO - 127.0.0.1 - - [07/Aug/2023 22:18:44] "POST /test HTTP/1.1" 200 -

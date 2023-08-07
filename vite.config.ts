@@ -22,4 +22,8 @@ export default defineConfig({
       ignore: [...builtinModules, "ws"],
     }
   },
+  preview: {
+    host:true,
+    port:62875
+  },
 });

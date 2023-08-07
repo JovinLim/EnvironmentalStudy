@@ -6,26 +6,16 @@ const {v4: uuidv4} = require('uuid');
 process.title = "File Server"
 var cors = require('cors');
 var multiparty = require('multiparty');
-// const env = require('dotenv').config({path: process.cwd()+`/.env.${process.env.NODE_ENV}`}).parsed;
+const env = require('dotenv').config({path: process.cwd()+`/.env.${process.env.NODE_ENV}`}).parsed;
 
-const app = express();
-// const port = env.FSV_PORT;
-const port = 3245
-const fetch_options = {
-  method: 'POST',
-  mode: 'cors',
-  credentials: 'same-origin',
-  headers: {
-    'Content-Type': 'application/json'
-  }
-}
+const app = express()
+const port = env.SF_PORT
+const pyhost = env.VITE_PY_HOST
 
 const options_rad = {
   // For python server that processes the model and runs sim
-  // hostname: env.HOSTIP2,
-  hostname: '127.0.0.1',
-  // port:env.PYS_PORT,
-  port: 3001,
+  hostname: pyhost,
+  port:env.PYS_PORT,
   path:'/test',
   method:'POST',
   headers:{

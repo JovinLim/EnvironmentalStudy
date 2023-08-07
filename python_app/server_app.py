@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for, request
-# from dotenv import dotenv_values
+from dotenv import dotenv_values
 # import datetime
 # import time
 import os
@@ -18,6 +18,7 @@ import uuid
 from simulation.ladybug.radiation import createLadybugMeshes, createPVMeshes, visualizePVScene, radiation_study
 import random
 
+env = dotenv_values(".env."+os.environ['NODE_ENV'])
 fh = logging.FileHandler('python_app/log/python.log', mode='a', encoding='utf-8')
 sh = logging.StreamHandler(stream = sys.stdout)
 handlers = [fh, sh]
@@ -34,7 +35,7 @@ app = Flask(__name__)
 
 ##Set IP and port here##
 _hostname = "0.0.0.0"#env["PYHOST"]
-_port = 3001
+_port = env["PYS_PORT"]
 _debug = True
 downloadlink = '/downloads/'
 basewd = os.getcwd()
