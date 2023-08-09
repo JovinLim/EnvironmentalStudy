@@ -1,3 +1,12 @@
+/*
+Custom Face which make up CustomMeshes. Will be used as an interface as part of the class CustomObject for all further functions after upload such as 
+simulations and manipulations
+CREATED BY Jovin
+
+TO DO:
+CHANGE TO USE FLOATARRAYS TO SAVE RAM AND PREVENT MISTAKES IN DATA ALTERATION
+*/
+
 import {v4 as uuidv4} from 'uuid';
 import * as glMatrix from 'gl-matrix';
 

@@ -1,0 +1,40 @@
+// vite.config.ts
+import { builtinModules } from "module";
+import { defineConfig } from "file:///C:/Users/Jovin/OneDrive/OneDrive%20-%20DP%20Architects%20Pte%20Ltd/Personal/JS/EnvironmentalStudy/node_modules/vite/dist/node/index.js";
+import solidPlugin from "file:///C:/Users/Jovin/OneDrive/OneDrive%20-%20DP%20Architects%20Pte%20Ltd/Personal/JS/EnvironmentalStudy/node_modules/vite-plugin-solid/dist/esm/index.mjs";
+import { nodePolyfills } from "file:///C:/Users/Jovin/OneDrive/OneDrive%20-%20DP%20Architects%20Pte%20Ltd/Personal/JS/EnvironmentalStudy/node_modules/vite-plugin-node-polyfills/dist/index.js";
+var vite_config_default = defineConfig({
+  plugins: [
+    /* 
+    Uncomment the following line to enable solid-devtools.
+    For more info see https://github.com/thetarnav/solid-devtools/tree/main/packages/extension#readme
+    */
+    solidPlugin(),
+    nodePolyfills({
+      exclude: [
+        "fs"
+      ],
+      globals: {
+        process: true
+      }
+    })
+  ],
+  base: "/EnvironmentalStudy/",
+  server: {
+    port: 3e3
+  },
+  build: {
+    target: "esnext",
+    commonjsOptions: {
+      ignore: [...builtinModules, "ws"]
+    }
+  },
+  preview: {
+    host: true,
+    port: 62875
+  }
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcudHMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCJDOlxcXFxVc2Vyc1xcXFxKb3ZpblxcXFxPbmVEcml2ZVxcXFxPbmVEcml2ZSAtIERQIEFyY2hpdGVjdHMgUHRlIEx0ZFxcXFxQZXJzb25hbFxcXFxKU1xcXFxFbnZpcm9ubWVudGFsU3R1ZHlcIjtjb25zdCBfX3ZpdGVfaW5qZWN0ZWRfb3JpZ2luYWxfZmlsZW5hbWUgPSBcIkM6XFxcXFVzZXJzXFxcXEpvdmluXFxcXE9uZURyaXZlXFxcXE9uZURyaXZlIC0gRFAgQXJjaGl0ZWN0cyBQdGUgTHRkXFxcXFBlcnNvbmFsXFxcXEpTXFxcXEVudmlyb25tZW50YWxTdHVkeVxcXFx2aXRlLmNvbmZpZy50c1wiO2NvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9pbXBvcnRfbWV0YV91cmwgPSBcImZpbGU6Ly8vQzovVXNlcnMvSm92aW4vT25lRHJpdmUvT25lRHJpdmUlMjAtJTIwRFAlMjBBcmNoaXRlY3RzJTIwUHRlJTIwTHRkL1BlcnNvbmFsL0pTL0Vudmlyb25tZW50YWxTdHVkeS92aXRlLmNvbmZpZy50c1wiO2ltcG9ydCB7IGJ1aWx0aW5Nb2R1bGVzIH0gZnJvbSAnbW9kdWxlJztcclxuaW1wb3J0IHsgZGVmaW5lQ29uZmlnIH0gZnJvbSAndml0ZSc7XHJcbmltcG9ydCBzb2xpZFBsdWdpbiBmcm9tICd2aXRlLXBsdWdpbi1zb2xpZCc7XHJcbi8vIGltcG9ydCBkZXZ0b29scyBmcm9tICdzb2xpZC1kZXZ0b29scy92aXRlJztcclxuaW1wb3J0IGluamVjdCBmcm9tICdAcm9sbHVwL3BsdWdpbi1pbmplY3QnO1xyXG5pbXBvcnQgeyBidWlsZCB9IGZyb20gJ2VzYnVpbGQnO1xyXG5pbXBvcnQgeyBub2RlUG9seWZpbGxzIH0gZnJvbSAndml0ZS1wbHVnaW4tbm9kZS1wb2x5ZmlsbHMnXHJcblxyXG5leHBvcnQgZGVmYXVsdCBkZWZpbmVDb25maWcoe1xyXG4gIHBsdWdpbnM6IFtcclxuICAgIC8qIFxyXG4gICAgVW5jb21tZW50IHRoZSBmb2xsb3dpbmcgbGluZSB0byBlbmFibGUgc29saWQtZGV2dG9vbHMuXHJcbiAgICBGb3IgbW9yZSBpbmZvIHNlZSBodHRwczovL2dpdGh1Yi5jb20vdGhldGFybmF2L3NvbGlkLWRldnRvb2xzL3RyZWUvbWFpbi9wYWNrYWdlcy9leHRlbnNpb24jcmVhZG1lXHJcbiAgICAqL1xyXG4gICAgc29saWRQbHVnaW4oKSxcclxuICAgIG5vZGVQb2x5ZmlsbHMoe1xyXG4gICAgICBleGNsdWRlOltcclxuICAgICAgICAnZnMnLFxyXG4gICAgICBdLFxyXG4gICAgICBnbG9iYWxzOntcclxuICAgICAgICBwcm9jZXNzOnRydWUsXHJcbiAgICAgIH1cclxuICAgIH0pLFxyXG5cclxuICBdLFxyXG4gIGJhc2U6XCIvRW52aXJvbm1lbnRhbFN0dWR5L1wiLFxyXG4gIHNlcnZlcjoge1xyXG4gICAgcG9ydDogMzAwMCxcclxuICB9LFxyXG4gIGJ1aWxkOiB7XHJcbiAgICB0YXJnZXQ6ICdlc25leHQnLFxyXG4gICAgY29tbW9uanNPcHRpb25zOiB7XHJcbiAgICAgIGlnbm9yZTogWy4uLmJ1aWx0aW5Nb2R1bGVzLCBcIndzXCJdLFxyXG4gICAgfVxyXG4gIH0sXHJcbiAgcHJldmlldzoge1xyXG4gICAgaG9zdDp0cnVlLFxyXG4gICAgcG9ydDo2Mjg3NVxyXG4gIH0sXHJcbn0pO1xyXG4iXSwKICAibWFwcGluZ3MiOiAiO0FBQWlkLFNBQVMsc0JBQXNCO0FBQ2hmLFNBQVMsb0JBQW9CO0FBQzdCLE9BQU8saUJBQWlCO0FBSXhCLFNBQVMscUJBQXFCO0FBRTlCLElBQU8sc0JBQVEsYUFBYTtBQUFBLEVBQzFCLFNBQVM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLElBS1AsWUFBWTtBQUFBLElBQ1osY0FBYztBQUFBLE1BQ1osU0FBUTtBQUFBLFFBQ047QUFBQSxNQUNGO0FBQUEsTUFDQSxTQUFRO0FBQUEsUUFDTixTQUFRO0FBQUEsTUFDVjtBQUFBLElBQ0YsQ0FBQztBQUFBLEVBRUg7QUFBQSxFQUNBLE1BQUs7QUFBQSxFQUNMLFFBQVE7QUFBQSxJQUNOLE1BQU07QUFBQSxFQUNSO0FBQUEsRUFDQSxPQUFPO0FBQUEsSUFDTCxRQUFRO0FBQUEsSUFDUixpQkFBaUI7QUFBQSxNQUNmLFFBQVEsQ0FBQyxHQUFHLGdCQUFnQixJQUFJO0FBQUEsSUFDbEM7QUFBQSxFQUNGO0FBQUEsRUFDQSxTQUFTO0FBQUEsSUFDUCxNQUFLO0FBQUEsSUFDTCxNQUFLO0FBQUEsRUFDUDtBQUNGLENBQUM7IiwKICAibmFtZXMiOiBbXQp9Cg==

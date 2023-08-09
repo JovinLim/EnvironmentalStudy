@@ -15,11 +15,17 @@ import './index.css'
 import { Rhino3dmLoader } from './utils/RhinoLoaderDup.js'
 import Playground from './utils/playground'
 import * as THREE from 'three'
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import LocationSelector from './Components/Geoservices/LocationSelector'
 import { buildMap } from './Components/Geoservices/OpenLayersMap.cjs'
 import { RhinoFileToCustomObject } from './utils/Serialization/Conversions/Rhino/RhinoConverter'
 import { addObjectsToScene } from './utils/Serialization/Conversions/ThreeJS/DPtoThreeJS'
+import { HardReset, createDatabase, createLogDatabase, getDBStorage_Refresh, setDBStorage } from './utils/Storage/IndexedDBFunctions'
+import rhino3dm from 'rhino3dm'
+import { runRadiationSimulation } from './Components/Simulation/Simulate'
+import { HideWarningAlert } from './utils/General/AlertHandler'
+// import {spawn} from 'promisify-child-process'
+// import {spawn} from 'child_process'
 // import { createDatabase, createLogDatabase, setDBStorage } from './utils/Storage/IndexedDBFunctions'
 
 
@@ -73,7 +79,7 @@ export async function toggleOptionsList(container_id : string, chevron_id = ""){
   }
 }
 
-export async function InitializePlayground() {
+export async function InitializePlayground(uuid_ = "") {
   /*
     Initialize Playground object
     
@@ -87,7 +93,14 @@ export async function InitializePlayground() {
       - Creates an assigns a randomly generated UUID for the Playground object which will be used for any HTML elements associated with it
         for future purposes when there needs to be more than one 3D viewer.
   */
-  const Uid = uuidv4()
+  let Uid;
+  if (uuid_ == ""){
+    Uid = uuidv4()
+  }
+
+  else {
+    Uid = uuid_
+  }
   const canvasDiv = document.getElementById("canvas") as HTMLDivElement
   const playground_ = new Playground(canvasDiv)
   playground_.Details.Uid = Uid
@@ -99,7 +112,20 @@ export async function InitializePlayground() {
 }
 
 export async function processModel(model : THREE.Group | THREE.Object3D, playground_ : Playground, context : string) {
+  /*
+    Process uploaded models to ensure it fits within the sunpath diagram
+    
+    Arguments:
+      - model : THREE.Group or THREE.Object3D
+      - playground_ : Playground
+      - context : 'import' or 'result' (string)
 
+    Returns:
+      - THREE.Group
+
+    Notes:
+      - 
+  */
 
   // Get sphere radius
   const sphereRad = playground_.Details.sphereRad
@@ -174,29 +200,253 @@ export async function uploadModel(upload : HTMLInputElement, mtl_upload : HTMLIn
   upload.click();
 }
 
-export async function testrad(){
-  let request = {
-    method: 'POST',
-    // body: formData,
+export async function customLoadRhinoFile(details_ : any, mode = "model"){
+  let targetBlob : Blob;
+  if(mode === "model"){
+    targetBlob = details_.fileBlob;
+  }else{
+    targetBlob = details_.simBlob;
+    console.log(targetBlob)
   }
-  var response = await fetch(simulation_url + "/test", request)
-  var result = await response.json()
-  console.log(result)
+  let file3dm;
+  await rhino3dm().then(async (rhino : any) => {
+    console.log('Loaded rhino3dm.js')
+    let buffer = await targetBlob.arrayBuffer()
+    let arr = new Uint8Array(buffer)
+    file3dm = rhino.File3dm.fromByteArray(arr)
+  })
+  return file3dm
+}
+
+function updatePlaygroundFileInfo(playground_ : Playground, file: FileList) {
+  playground_.Details.fileInfo.filename = file[0].name
+  playground_.Details.fileInfo.filesize = (file[0].size * 0.000001).toFixed(3)
+  playground_.Details.fileInfo.filetype = file[0].name.slice(-3).toUpperCase()
+}
+
+export async function addFileLayerHeaders() {
+  // Get HTML div of the layer container
+  var layerContainerDiv = document.getElementById('layerHeaderContainer') as HTMLDivElement;
+
+  // Adding header row
+  var headerDiv = document.createElement('div')
+  headerDiv.className = "flex items-center mb-4"
+  headerDiv.style.flexDirection = "row"
+  headerDiv.style.paddingTop = "20px"
+
+  // Adding building layer header
+  var bLayerHeader = document.createElement('label')
+  bLayerHeader.innerHTML = `Layers`
+  bLayerHeader.className = "ml-2 text-sm font-medium text-gray-200"
+  bLayerHeader.style.paddingRight = "60px"
+
+  // Adding visibility header
+  var visLayerHeader = document.createElement('label')
+  visLayerHeader.innerHTML = `Visibility`
+  visLayerHeader.className = "ml-2 text-sm font-medium text-gray-200"
+  visLayerHeader.style.paddingRight = "15px"
+
+  // Adding building header
+  var BLayerHeader = document.createElement('label')
+  BLayerHeader.innerHTML = `Building`
+  BLayerHeader.className = "ml-2 text-sm font-medium text-gray-200"
+  BLayerHeader.style.paddingRight = "15px"
+
+  // Adding context header
+  var CLayerHeader = document.createElement('label')
+  CLayerHeader.innerHTML = `Context`
+  CLayerHeader.className = "ml-2 text-sm font-medium text-gray-200"
+  CLayerHeader.style.paddingRight = "20px"
+
+  // Adding child div elements to parents
+  headerDiv.appendChild(bLayerHeader)
+  headerDiv.appendChild(visLayerHeader)
+  headerDiv.appendChild(BLayerHeader)
+  headerDiv.appendChild(CLayerHeader)
+  // layerContainerDiv.appendChild(headerDiv)
+  layerContainerDiv.insertBefore(headerDiv, layerContainerDiv.children[0])
+}
+
+export async function updateModelLayers (playground_ : Playground, refresh : boolean) {
+
+  await addFileLayerHeaders()
+  // Get HTML div of the layer container
+  var layerContainerDiv = document.getElementById('FileLayersContainer') as HTMLDivElement
+  let bStrings = playground_.Details.blayers.split(',')
+  let oStrings = playground_.Details.olayers.split(',')
+
+  if (!refresh){
+    layerContainerDiv.replaceChildren();
+    // Check filetype
+    var fileType = playground_.Details.fileInfo.filetype;
+    // Decide what to do based on file type
+    switch (fileType) {
+      case "3DM":
+        var doc = (await customLoadRhinoFile(playground_.Details)) as any
+        var layers = doc.layers()
+        var layers_list = []
+        // Append layers to list (for identifying by index)
+        for (let i = 0; i < layers.count(); i++){
+          let layer = layers.get(i)
+          layers_list.push(layer.name)
+          var layerDiv = document.createElement('div')
+          layerDiv.className = "flex items-center mb-4"
+          layerDiv.style.flexDirection = "row"
+          layerDiv.setAttribute("LayerName", layer.name)
+
+          // Creating label
+          var layerLabel = document.createElement('label')
+          layerLabel.innerHTML = `${layer.name}`
+          layerLabel.className = "ml-2 text-sm font-medium text-gray-200"
+          layerLabel.style.paddingRight = "80px"
+          layerLabel.style.overflow = "hidden"
+          layerLabel.style.width = "130px"
+
+          // Creating visibility checkbox
+          var layerVisInput = document.createElement('input')
+          layerVisInput.type = "checkbox"
+          layerVisInput.className = "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          layerVisInput.id = `${layer.name}-visibility`
+          layerVisInput.style.marginRight = "60px"
+          layerVisInput.setAttribute("checked", "checked")
+          layerVisInput.setAttribute("Index", i.toString())
+
+        // Set all children to be visible
+          let simObject : any = undefined;
+          playground_.scene.traverse( (child : THREE.Object3D)=> {
+            if(child.visible == false){
+              child.visible = true
+            }
+            if(child.name == "Simulation"){
+              simObject = child;
+              }
+            });
+            if(simObject !== undefined){
+            // Hide Sim buildings
+            simObject.traverse((child: THREE.Object3D)=>{
+              if(child.userData.hasOwnProperty('attributes')){
+              if('layerIndex' in child.userData.attributes){
+                if(simObject.userData.layers[child.userData.attributes.layerIndex]
+                .fullPath.includes('building')){                    
+                child.visible = false;
+                }
+              }
+              }
+            });
+            // Hide buildings
+                playground_.scene.traverse((child: THREE.Object3D)=>{
+                if(child.name.includes("Project-") && (!child.name.includes("models"))){
+                child.visible = false;
+                }
+                });
+          }
+          
+          // Creating building checkbox
+          var layerBInput = document.createElement('input')
+          layerBInput.type = "checkbox"
+          layerBInput.className = "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          layerBInput.id = `${layer.name}-building`
+          layerBInput.style.marginRight = "60px"
+          layerBInput.setAttribute("checked", "checked")
+          layerBInput.checked = bStrings.includes(layer.name) ? true : false
+          layerBInput.setAttribute("Index", i.toString())
+
+          // Creating context checkbox
+          var layerCInput = document.createElement('input')
+          layerCInput.type = "checkbox"
+          layerCInput.className = "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          layerCInput.id = `${layer.name}-context`
+          layerCInput.setAttribute("checked", "checked")
+          layerCInput.checked = oStrings.includes(layer.name) ? true : false
+          // layerCInput.checked = false;
+          layerCInput.setAttribute("Index", i.toString())
+          
+          // Appending html child divs to parents
+          layerDiv.appendChild(layerLabel)
+          layerDiv.appendChild(layerVisInput)
+          layerDiv.appendChild(layerBInput)
+          layerDiv.appendChild(layerCInput)
+          layerContainerDiv.appendChild(layerDiv);
+        }
+        
+        playground_.Details.layers = layers_list
+        setDBStorage('App')
+    }
+  }
+
+  for (let i = 0; i < layerContainerDiv.children.length; i++) {
+    var childDiv = layerContainerDiv.children[i]
+    childDiv.addEventListener('change', function (e) {
+      var target = e.target as any
+      if (target.tagName == "INPUT" && target.type == "checkbox"){
+        if (target.id.includes("visibility")) {
+          playground_.scene.traverse(function (child : THREE.Object3D) {
+          if (child instanceof THREE.Mesh && child.name.includes("Project_")){
+            console.log(child.userData.layerIndex)
+            if (child.userData.layerIndex == target.getAttribute("Index") as number) {
+              if (target.checked && child.visible == false) {
+                child.visible = true
+              }
+
+              else if (!target.checked && child.visible == true) {
+                child.visible = false
+              }
+            }
+          }
+        })
+      }
+
+        else if (target.id.includes("building")) {
+          if (target.checked) {
+            playground_.Details.blayers += `${target.id.split('-')[0]},`
+            playground_.Details.olayers = playground_.Details.olayers.replace(`${target.id.split('-')[0]},`, '')
+            var oDivID = target.id.replace('-building', '-context')
+            var oDiv = document.getElementById(oDivID) as any
+            oDiv.checked = false
+          }
+
+          else if (!target.checked) {
+            playground_.Details.blayers = playground_.Details.blayers.replace(`${target.id.split('-')[0]},`, '')
+          }
+        }
+
+        else if (target.id.includes("context")) {
+          if (target.checked) {
+            var name = childDiv.getAttribute("LayerName") as string
+            playground_.Details.olayers += `${target.id.split('-')[0]},`
+            playground_.Details.blayers = playground_.Details.blayers.replace(`${target.id.split('-')[0]},`, '')
+            var bDivID = target.id.replace('-context', '-building')
+            var bDiv = document.getElementById(bDivID) as any
+            bDiv.checked = false
+          }
+
+          else if (!target.checked) {
+            playground_.Details.olayers = playground_.Details.olayers.replace(`${target.id.split('-')[0]},`, '')
+          }
+          
+        }
+        setDBStorage('App')
+      }
+    })
+  }
 }
 
 const App: Component = () => {
 
-  onMount(() =>{
-    InitializePlayground()
+  onMount( async () =>{
+
   /*
-    1. Initialize playground
+    1. Create IDB storage & get details from storage
     2. Build map
     3. Add event listeners for files
   */
     // 1
+    createLogDatabase()
+    createDatabase()
+    await getDBStorage_Refresh()
     // 2
     const mapDiv = document.querySelector('#map') as HTMLDivElement
-    buildMap(mapDiv)
+    // buildMap(mapDiv)
     
     // 3
     var fileImport = document.getElementById('import_input_file') as HTMLInputElement
@@ -213,17 +463,17 @@ const App: Component = () => {
             let file = fileImport.files as FileList
             var rhinoURL = URL.createObjectURL(file[0])
             playground_.Details.fileBlob = file[0] as Blob
-            playground_.Details.mtlFile = 0
-            playground_.Details.objFile = 0
             await RhinoFileToCustomObject(playground_.Details)
             await addObjectsToScene(playground_)
+            updatePlaygroundFileInfo(playground_, file)
+            updateModelLayers(playground_, false)
             fileImport.value = "";
             mtlImport.value = "";
             playground_.Details.blayers = ''
             playground_.Details.olayers = ''
             playground_.Details.mtlFile = 0
             playground_.Details.objFile = 0
-            // setDBStorage('App');
+            setDBStorage('App')
           }
 
           else if (fileType.toUpperCase() == 'OBJ'){
@@ -273,14 +523,15 @@ const App: Component = () => {
                   playground_.scene.add(obj)
                   playground_.Details.blayers = ''
                   playground_.Details.olayers = ''
-                  // updateModelLayers(playground_, false)
+                  updateModelLayers(playground_, false)
               }
           })
   
-          // updatePlaygroundFileInfo(playground_, file)
+          updatePlaygroundFileInfo(playground_, file)
           // c_playgrd = playground_;
           fileImport.value = "";
           mtlImport.value = "";
+          setDBStorage('App')
         })
   })
 
@@ -292,9 +543,31 @@ const App: Component = () => {
           <input type="file" id="import_input_file" name="filename" accept= ".obj, .3dm" ref={fileRef} hidden/>
           <input type="file" id="import_input_mtl" name="filename" accept= ".mtl" ref={mtlRef} hidden/>
         </button>
-        <button id="import_button" onclick={(e) => testrad()} style="z-index:100" class="items-center text-center w-full border-b border-gray-400 p-5 font-medium text-gray-200 hover:bg-blue-800">
+        {/* FILE LAYERS START */}
+        <div class="flex" style="z-index:207; white-space: nowrap; gap:20px; position:relative">
+            <button type="button" id="FileLayersButton" onclick={(e) => toggleOptionsList('FileLayers', 'FileLayersChevron')} style="min-width:100%" class="flex items-center w-full justify-between border-b border-gray-400 p-5 font-medium text-left text-gray-200 dark:text-gray-400 hover:bg-blue-800">
+                <div class = "inline-flex gap-x-4" style='margin-left:20%'>File Layers</div>
+                <svg fill="none" id="FileLayersChevron" stroke="dimgray" class="w-4 h-6" stroke-width="4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path></svg>
+            </button>
+            <div id="FileLayers" show="false" style="position: absolute; left: 105%; z-index: 208; flex-wrap:wrap; gap:10px; width:auto; background: rgb(41, 41, 41);" class="flex w-full justify-between border border-gray-400 justify-between p-5 font-medium text-left text-gray-200 hidden" role="alert">
+                <button onclick={(e) => toggleOptionsList('FileLayersInfo')}>
+                    {/* <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; left:90%; top:10px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+                    </svg> */}
+                </button>
+                <div style="display:flex; flex-direction:row"id='layerHeaderContainer'></div>
+                <div id='FileLayersContainer' style = "display:flex; flex-wrap:wrap"></div>
+            </div>
+        </div>
+        {/* FILE LAYERS END */}
+        <button id="import_button" onclick={(e) => runRadiationSimulation()} style="z-index:100" class="items-center text-center w-full border-b border-gray-400 p-5 font-medium text-gray-200 hover:bg-blue-800">
           <label>Run Radiation Simulation</label>
         </button>
+        <div class="flex">
+              <button type="button" onclick={async () => HardReset()} class="items-center text-center w-full border-b border-gray-400 p-5 font-medium text-gray-200 hover:bg-blue-800">
+                Reset
+              </button>
+        </div>
       </div>
       <div id="canvas" style="z-index:10;" class="canvas"></div>
       <div class = "geoDataContainer" id="geoData">
@@ -338,14 +611,14 @@ const App: Component = () => {
             </div>
 
             {/* HARD RESET BUTTON START */}
-            {/* <div class="flex">
+            <div class="flex">
               <button type="button" onclick={async () => HardReset()} class="text-white bg-yellow-800 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-yellow-300 dark:text-gray-800 dark:hover:bg-yellow-400 dark:focus:ring-yellow-800">
                 Reset
               </button>
               <button type="button" onclick={async () => HideWarningAlert()} class="text-yellow-800 bg-transparent border border-yellow-800 hover:bg-yellow-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-gray-800 dark:focus:ring-yellow-800" data-dismiss-target="#WarningAlert" aria-label="Close">
                 Cancel
               </button>
-            </div> */}
+            </div>
             {/* HARD RESET BUTTON END */}
           </div>
 

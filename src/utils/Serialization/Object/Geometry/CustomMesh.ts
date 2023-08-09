@@ -1,3 +1,9 @@
+/*
+Custom Mesh which contain geometry information for file uploads. Will be used as an interface as part of the class CustomObject for all further functions after upload such as 
+simulations and manipulations
+CREATED BY Jovin
+*/
+
 import {v4 as uuidv4} from 'uuid';
 import * as glMatrix from 'gl-matrix';
 import CustomFace from './CustomFace';

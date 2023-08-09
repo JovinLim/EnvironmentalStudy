@@ -1,16 +1,10 @@
 import 'flowbite';
 import * as THREE from 'three';
-import {createNewDiv, playground} from '../../Components/MainPage/NewScene';
-import  { updateModelLayers, UpdateProjectInfo } from '../../Components/MainPage/DetailsDrawer';
-import { playgrounds } from '../../Components/MainPage/SceneHolder';
+import { updateModelLayers, InitializePlayground, playground } from '../../App';
 import Playground from '../playground';
-// import { buildMap, map } from './Components/Map';
-import { buildMap } from '../../Components/Geoservices/OpenLayersMap';
+import { buildMap } from '../../Components/Geoservices/OpenLayersMap.cjs';
 import { updateTime } from '../../Components/Geoservices/TimeHandler';
 import { updateDate } from '../../Components/Geoservices/DateSlider';
-import { ProjectDetails, setProjectDetails } from '../../Components/LiveReports/LiveReports';
-import { project, setProject, windowName } from '../../Components/LiveReports/ReportsScene';
-import { getRunningJobs } from './JobFunctions';
 
 let db;
 
@@ -38,7 +32,7 @@ export async function HardReset() {
     
         const detailTransaction = res.transaction('details', 'readwrite')
         detailTransaction.oncomplete = function() {
-          console.log('Completed detail transaction')
+          // console.log('Completed detail transaction')
           resolve()
         }
       
@@ -52,10 +46,8 @@ export async function HardReset() {
         
         storageCount.onsuccess = async () => {
           if (storageCount.result == 0) {
-            // createNewDiv(false)
-            // UpdateProjectInfo('create')
+            InitializePlayground()
             buildMap(document.getElementById('map') as HTMLDivElement)
-            window.dispatchEvent(new CustomEvent('playground-loaded', {detail:[], bubbles:true, composed:true}));
           } else {
             // New way of using UUID
             await new Promise<void>((resolve, reject) => {
@@ -75,19 +67,13 @@ export async function HardReset() {
                   const details = e.target.result
                   details.forEach((details_ : any) => {
                     const uuid = details_.Uid
-                    createNewDiv(true, uuid)
+                    InitializePlayground(uuid)
                     const playground_ = playground() as Playground
-                    //console.log("JOB_KEY: " + details_.job_key)
                     playground_.Details = details_
-                    playground_.Details.toSimulate = false
                     playground_.redrawSun()
                     playground_.redrawAnalemma()
                     updateTime(playground_)
                     updateDate(playground_)
-
-                    console.log(playground_)
-                    // Start to get running jobs
-                    getRunningJobs([playground_])
                   })
                   resolve()
                 }
@@ -127,12 +113,11 @@ export async function HardReset() {
                 const lastIndex = models.length - 1
                 for (let i = 0; i < models.length; i++){
                   const model_ = models[i]
-                  const playground_ = playgrounds[i]
+                  // const playground_ = playgrounds[i]
+                  const playground_ = playground()
                   parseModelData(model_, playground_)
-                  if (i == lastIndex) {
-                    buildMap(document.getElementById('map') as HTMLDivElement)
-                    updateModelLayers(playground_, true)
-                  }
+                  buildMap(document.getElementById('map') as HTMLDivElement)
+                  updateModelLayers(playground_, false)
                 }
               }
               resM.close()
@@ -146,7 +131,6 @@ export async function HardReset() {
             }
           })
             setDBStorage('App')
-            window.dispatchEvent(new CustomEvent('playground-loaded', {detail:[...playgrounds], bubbles:true, composed:true}));
           }
         }
         res.close()
@@ -158,7 +142,6 @@ export async function HardReset() {
 function parseModelData(model : any, playground_ : Playground){
   if (model!= undefined || model != null){ 
     const model_ = new THREE.ObjectLoader().parse(JSON.parse(model as string))
-    console.log(model_)
     playground_.scene.add(model_)
   }
 
@@ -176,26 +159,29 @@ export async function setDBStorage(Page: String) {
             let res = request.result
             const modelTransaction = res.transaction('models', 'readwrite')
             const simTransaction = res.transaction('simulations', 'readwrite')
-        
-            playgrounds.forEach((playground_) => {
-              const Uid = playground_.Details.Uid
-              var model = playground_.scene.getObjectByName(`Project_${Uid}_models`)
-              var sim = playground_.scene.getObjectByName("Simulation")
-              const modelStore = modelTransaction.objectStore('models')
-              const simStore = simTransaction.objectStore('simulations')
-              
-              // Store sim results if present
-              if(sim !== undefined){
-                const request = simStore.put(JSON.stringify(sim), `Project_${Uid}_simulation`)
-                request.onsuccess = ()=>{}
-                request.onerror = (err : any) =>{console.error(`Error : ${err}`)}
-              }
+
+            let playground_ = playground()
+            const Uid = playground_.Details.Uid
+            var model = playground_.scene.getObjectByName(`Project_${Uid}_models`)
+            var sim = playground_.scene.getObjectByName("Simulation")
+            const modelStore = modelTransaction.objectStore('models')
+            const simStore = simTransaction.objectStore('simulations')
+
+            // Store sim results if present
+            if(sim != undefined){
+              const request = simStore.put(JSON.stringify(sim), `Project_${Uid}_simulation`)
+              request.onsuccess = ()=>{}
+              request.onerror = (err : any) =>{console.error(`Error : ${err}`)}
+            }
+
+            // Store model if present
+            if (model != undefined){
               const request = modelStore.put(JSON.stringify(model), `Project_${Uid}_models`)
               request.onsuccess = () => {}
               request.onerror = (err) => { console.error(`Error : ${err}`) }
-        
-            })
-        
+            }
+            
+            
             const detailTransaction = res.transaction('details', 'readwrite')
             detailTransaction.oncomplete = function() {
               //console.log('Completed detail transaction')
@@ -205,20 +191,16 @@ export async function setDBStorage(Page: String) {
               console.error("Error", detailTransaction.error)
             }
         
-            playgrounds.forEach((playground_) => {
-              const deets = playground_.Details
-              const Uid =  deets.Uid
-              const detailStore = detailTransaction.objectStore('details')
-              const request = detailStore.put(deets, `Project_${Uid}_details`)
-              request.onsuccess = () => {
-                // console.log(`Details ${i} added`)
+            const detailStore = detailTransaction.objectStore('details')
+            const drequest = detailStore.put(playground_.Details, `Project_${Uid}_details`)
+            drequest.onsuccess = () => {
+              // console.log(`Details ${i} added`)
+      
+            }
         
-              }
-          
-              request.onerror = (err) => {
-                console.error(`Error : ${err}`)
-              }
-            })
+            drequest.onerror = (err) => {
+              console.error(`Error : ${err}`)
+            }
         
             res.close()
             resolve()
@@ -232,43 +214,43 @@ export async function setDBStorage(Page: String) {
       })
     }
 
-    else if (Page == 'LiveReportsApp'){
-      return new Promise<void>(async (resolve, reject) => {
-        try {
-          const request = indexedDB.open("SceneDatabase")
-          request.onsuccess = async () => {
-            let res = request.result
+    // else if (Page == 'LiveReportsApp'){
+    //   return new Promise<void>(async (resolve, reject) => {
+    //     try {
+    //       const request = indexedDB.open("SceneDatabase")
+    //       request.onsuccess = async () => {
+    //         let res = request.result
   
-            await new Promise<void>((resolve, reject) => {
-              const detailTransaction = res.transaction('details', 'readwrite')
-              detailTransaction.oncomplete = function() {resolve()}
+    //         await new Promise<void>((resolve, reject) => {
+    //           const detailTransaction = res.transaction('details', 'readwrite')
+    //           detailTransaction.oncomplete = function() {resolve()}
             
-              detailTransaction.onerror = function() {console.error("Error", detailTransaction.error); reject()}
+    //           detailTransaction.onerror = function() {console.error("Error", detailTransaction.error); reject()}
             
-              for (let i = 0; i < ProjectDetails.length; i++) {
-                var fileBlob = ProjectDetails[i].fileBlob
-                var deets = JSON.parse(JSON.stringify(ProjectDetails[i]))
-                deets.fileBlob = fileBlob
-                const detailStore = detailTransaction.objectStore('details')
-                const request = detailStore.put(deets, `Project_${deets.Uid}_details`)
-                request.onsuccess = () => {
-                  //console.log(`Details ${i} added`)
-                }
+    //           for (let i = 0; i < ProjectDetails.length; i++) {
+    //             var fileBlob = ProjectDetails[i].fileBlob
+    //             var deets = JSON.parse(JSON.stringify(ProjectDetails[i]))
+    //             deets.fileBlob = fileBlob
+    //             const detailStore = detailTransaction.objectStore('details')
+    //             const request = detailStore.put(deets, `Project_${deets.Uid}_details`)
+    //             request.onsuccess = () => {
+    //               //console.log(`Details ${i} added`)
+    //             }
             
-                request.onerror = (err) => {
-                  console.error(`Error : ${err}`)
-                }
-              }
-            })
-            res.close()
-            resolve()
-          }
-        }
-        catch (error) {
-          reject(error)
-        }
-      })
-    }
+    //             request.onerror = (err) => {
+    //               console.error(`Error : ${err}`)
+    //             }
+    //           }
+    //         })
+    //         res.close()
+    //         resolve()
+    //       }
+    //     }
+    //     catch (error) {
+    //       reject(error)
+    //     }
+    //   })
+    // }
 
   }
 
@@ -290,7 +272,7 @@ export async function setDBStorage(Page: String) {
     openRequest.onupgradeneeded = (e) => {
       db = openRequest.result
       const simStore = db.createObjectStore('simulations', {autoIncrement:true})
-      simStore.transaction.oncomplete = () => {}
+      simStore.transaction.oncomplete = () => {console.log('simstore created')}
       const modelStore = db.createObjectStore('models', {autoIncrement:true})
       modelStore.transaction.oncomplete = () => {}
       const detailStore = db.createObjectStore('details', {autoIncrement:true})
@@ -320,83 +302,83 @@ export async function setDBStorage(Page: String) {
     }
   }
 
-  export function getDetailsfromDB(Page: String){
-    if (Page == 'LiveReportsApp') {
-      return new Promise<void>((resolve, reject) => {
-        const reqD = indexedDB.open("SceneDatabase", 1)
-        reqD.onsuccess = () => {
-          let resD = reqD.result
-          const dTransaction = resD.transaction('details', 'readwrite')
-          const detailStore = dTransaction.objectStore('details')
-          const getRequest = detailStore.getAll()
+//   export function getDetailsfromDB(Page: String){
+//     if (Page == 'LiveReportsApp') {
+//       return new Promise<void>((resolve, reject) => {
+//         const reqD = indexedDB.open("SceneDatabase", 1)
+//         reqD.onsuccess = () => {
+//           let resD = reqD.result
+//           const dTransaction = resD.transaction('details', 'readwrite')
+//           const detailStore = dTransaction.objectStore('details')
+//           const getRequest = detailStore.getAll()
   
-          getRequest.onerror = (e: any) => {
-            console.log(e)
-            reject(e)
-          }
+//           getRequest.onerror = (e: any) => {
+//             console.log(e)
+//             reject(e)
+//           }
   
-          getRequest.onsuccess = (e:any) => {
-            const details = e.target.result
-            setProjectDetails(details)
+//           getRequest.onsuccess = (e:any) => {
+//             const details = e.target.result
+//             setProjectDetails(details)
   
-            resolve()
-          }
+//             resolve()
+//           }
   
-          resD.close()
+//           resD.close()
   
-          dTransaction.oncomplete = () => {
-            resolve()
-          }
+//           dTransaction.oncomplete = () => {
+//             resolve()
+//           }
   
-          dTransaction.onerror = () => {
-            reject(dTransaction.error)
-          }
-        }
+//           dTransaction.onerror = () => {
+//             reject(dTransaction.error)
+//           }
+//         }
   
-        reqD.onerror = (e) => {
-          console.error(e)
-        }
-      })
-    }
+//         reqD.onerror = (e) => {
+//           console.error(e)
+//         }
+//       })
+//     }
   
-  else if (Page == 'ReportScene'){
-    return new Promise<void>(async (resolve, reject) => {
-      const reqD = indexedDB.open("SceneDatabase", 1)
-      reqD.onsuccess = () => {
-        let resD = reqD.result
-        const dTransaction = resD.transaction('details', 'readwrite')
-        const detailStore = dTransaction.objectStore('details')
-        const getRequest = detailStore.getAll()
+//   else if (Page == 'ReportScene'){
+//     return new Promise<void>(async (resolve, reject) => {
+//       const reqD = indexedDB.open("SceneDatabase", 1)
+//       reqD.onsuccess = () => {
+//         let resD = reqD.result
+//         const dTransaction = resD.transaction('details', 'readwrite')
+//         const detailStore = dTransaction.objectStore('details')
+//         const getRequest = detailStore.getAll()
 
-        getRequest.onerror = (e: any) => {
-          console.log(e)
-          reject(e)
-        }
+//         getRequest.onerror = (e: any) => {
+//           console.log(e)
+//           reject(e)
+//         }
 
-        getRequest.onsuccess = (e:any) => {
-          const details = e.target.result
-          details.forEach((details_ : any) => {
-            if (details_.name == windowName()){
-              setProject(details_)
-            }
-          })
-          resolve()
-        }
+//         getRequest.onsuccess = (e:any) => {
+//           const details = e.target.result
+//           details.forEach((details_ : any) => {
+//             if (details_.name == windowName()){
+//               setProject(details_)
+//             }
+//           })
+//           resolve()
+//         }
 
-        resD.close()
+//         resD.close()
 
-        dTransaction.oncomplete = () => {
-        }
+//         dTransaction.oncomplete = () => {
+//         }
 
-        dTransaction.onerror = () => {
-          reject(dTransaction.error)
-        }
-      }
+//         dTransaction.onerror = () => {
+//           reject(dTransaction.error)
+//         }
+//       }
 
-      reqD.onerror = (e) => {
-        console.error(e)
-      }
-    })
-  }
+//       reqD.onerror = (e) => {
+//         console.error(e)
+//       }
+//     })
+//   }
 
-}
+// }

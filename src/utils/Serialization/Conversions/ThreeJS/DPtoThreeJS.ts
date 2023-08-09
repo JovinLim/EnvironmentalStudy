@@ -16,7 +16,6 @@ export async function addObjectsToScene(playground_ : Playground) {
     // CLEARING CURRENT PLAYGROUND SCENE AND ADDING NEW GROUP
     const details_ = playground_.Details
     var meshGroup = new THREE.Group()
-    meshGroup.name = `${details_.Uid}_meshgroup`
 
     // GETTING ALL OBJECTS FROM PLAYGROUND
     var objects = playground_.Details.objects as CustomObject[]

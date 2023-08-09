@@ -1,7 +1,10 @@
+/*
+Custom objects which contain geometry and BIM information for file uploads. Will be used as an interface for all further functions after upload such as simulations and manipulations
+CREATED BY Jovin
+*/
+
 import  CustomMesh  from './Geometry/CustomMesh'
-// import { Wall, Window } from './BIM/BIMElements'
 import BIMElement from './BIM/BIMElements'
-import Wall from './BIM/Wall'
 import {v4 as uuidv4} from 'uuid';
 
 export default class CustomObject {

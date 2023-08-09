@@ -1,3 +1,9 @@
+/*
+Server to listen for calls from main web application
+Sends requests to python Flask server (have not figured out how to workaround CORS policy with frontend server)
+CREATED BY Bob & Jovin
+*/
+
 const express = require('express');
 const process = require('process');
 const http = require('http');
@@ -11,72 +17,24 @@ const env = require('dotenv').config({path: process.cwd()+`/.env.${process.env.N
 const app = express()
 const port = env.SF_PORT
 const pyhost = env.VITE_PY_HOST
+const testing = env['TESTING']
 
 const options_rad = {
   // For python server that processes the model and runs sim
   hostname: pyhost,
   port:env.PYS_PORT,
-  path:'/test',
+  path:'/radiation',
   method:'POST',
   headers:{
       'Content-Type':'application/json'
   }
 };
 
-function getEPW(epw_url){
-  console.log(epw_url)
-  let s = epw_url.split('/')
-  let filename = s[s.length-1]
-  console.log(filename)
-  filename = filename.replace(".zip",".epw");
-  let filepath, filepath2
-  if(process.env.NODE_ENV === "development"){
-    var root = process.cwd().replace(/\\/g,"/")
-    filepath = root+"/"+env['DIR2']+"/server/epw/"+filename;
-    filepath2 = root+"/"+env['DIR']+"/server/epw/"+filename;
-  }else{
-    filepath = env['DIR2']+"/server/epw/"+filename;
-    filepath2 = env['DIR']+"/server/epw/"+filename;
-  }
-  let info = '';
-  return new Promise((resolve, reject) => {
-    // TODO: refactor to use postData
-	  const rq = http.request(options_epw, (rs) => {
-	    rs.on('data', (chunk) => {
-	      info += `${chunk}`;
-	    });
-	    rs.on('end', () => {
-	      let bdata;
-	      bdata = info;
-	      //Need try catch here
-	      console.log(filepath);
-	      fs.writeFileSync(filepath, bdata);
-	      resolve(filepath2)
-	      return filepath2;
-	    });
-
-	  });
-
-	  rq.on('error', (e) => {
-	      console.error(`Error: ${e.message}`);
-	      reject(e);
-	      return('failed');
-	  });
-
-	  var qdata = JSON.stringify({epw_url:epw_url});
-	  rq.write(qdata);
-
-	  rq.end();
-
-  });
-  
-}
-
 // WARNING! THIS CORS RULE IS UNSAFE. TO SPECIFY DURING PRODUCTION
 app.use(cors());
 app.options('*',cors());
 app.use(express.json());
-app.set('trust proxy', true);
+// app.set('trust proxy', true);
 
 // WARNING! THIS CORS RULE IS UNSAFE. TO SPECIFY DURING PRODUCTION
 
@@ -169,6 +127,9 @@ app.post('/radiation', cors(), (req,res) => {
       // SIMULATING PUBLIC DOWNLOAD FOLDER CREATION LOCALLY
       const wd = process.cwd()
       const public_dir = wd + "\\public\\downloads\\" + folder_id + "\\"
+      console.log(public_dir)
+      fs.mkdirSync(public_dir, {recursive:true}, 
+        err=>{console.log("Error: "+err);})
 
       var pdata = JSON.stringify({projname:fields.project_name[0],
                                   dir: folder,

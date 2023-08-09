@@ -1,3 +1,10 @@
+###############################################################################
+##  server_app.py
+##  (c) 2023, Jovin Lim
+##  Flask server running on python to listen for calls from the main web application to run simulations
+
+###############################################################################
+
 from flask import Flask, redirect, url_for, request
 from dotenv import dotenv_values
 # import datetime
@@ -42,7 +49,6 @@ basewd = os.getcwd()
 
 @app.route('/test', methods = ['POST'])
 def test():
-    print(1)
     reply = {'Message': 'Received'}
     return reply
 
@@ -95,11 +101,9 @@ def radiation():
             #     f.write(json.dumps(debug))
             #     print('pymesh debug written')
 
-            DPObjectList = []
-
             """ LADYBUG SOLAR RADIATION START """
             # Create pyvista meshes (subdivided into max tri area of 0.5sqm)
-            meshList = createPVMeshes(rb_layers, verts_=sMeshesVerts, faces_=sMeshesFaces, max_tri_area_=1000) # This function also subdivides adaptively to tri-areas of 0.5sqm
+            meshList = createPVMeshes(rb_layers, verts_=sMeshesVerts, faces_=sMeshesFaces, max_tri_area_=1) # This function also subdivides adaptively to tri-areas of 0.5sqm
             # visualizePVScene(meshList)
             
             # Create Ladybug Meshes 
