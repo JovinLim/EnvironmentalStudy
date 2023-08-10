@@ -28,8 +28,7 @@ import { HideWarningAlert } from './utils/General/AlertHandler'
 // import { createDatabase, createLogDatabase, setDBStorage } from './utils/Storage/IndexedDBFunctions'
 
 
-let simulation_url = import.meta.env.BASE_URL + import.meta.env.SF_PORT
-
+let simulation_url = import.meta.env.BASE_URL + import.meta.env.VITE_SF_PORT + '/'
 // Create signal to export the Playground object, allows access from different files
 export const [playground, setPlayground] = createSignal<Playground>()
 const reader = new FileReader()
@@ -431,6 +430,7 @@ export async function updateModelLayers (playground_ : Playground, refresh : boo
 }
 
 async function test() {
+  console.log(simulation_url)
   let request = {
     method: 'GET',
   }

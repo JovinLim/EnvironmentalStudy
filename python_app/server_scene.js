@@ -31,10 +31,10 @@ app.post('/', cors(), (req,res) => {
             // Get public download folder from request body
             var folder_id = fields.downloads_folder[0]
             // var payloadJSON = folder + 'results\\radiation_results.json'
-            console.log(`${env.WEB_HOSTNAME}` + `\\public\\downloads\\${folder_id}\\results\\radiation_results.json`)
-            let response = await fetch(`${env.WEB_HOSTNAME}` + `\\public\\downloads\\${folder_id}\\results\\radiation_results.json`)
-            // console.log(`${env.WEB_HOSTNAME}` + `public/downloads/68053256_d7b8_4ea4_908d_ad7c1ee40d48/results/radiation_results.json`)
-            // let response = await fetch(`${env.WEB_HOSTNAME}` + `public/downloads/68053256_d7b8_4ea4_908d_ad7c1ee40d48/results/radiation_results.json`)
+            console.log(`${env.VITE_WEB_HOSTNAME}` + `\\public\\downloads\\${folder_id}\\results\\radiation_results.json`)
+            let response = await fetch(`${env.VITE_WEB_HOSTNAME}` + `\\public\\downloads\\${folder_id}\\results\\radiation_results.json`)
+            // console.log(`${env.VITE_WEB_HOSTNAME}` + `public/downloads/68053256_d7b8_4ea4_908d_ad7c1ee40d48/results/radiation_results.json`)
+            // let response = await fetch(`${env.VITE_WEB_HOSTNAME}` + `public/downloads/68053256_d7b8_4ea4_908d_ad7c1ee40d48/results/radiation_results.json`)
             let data = await response.json()
 
             const faceInds = data['face_indices']
