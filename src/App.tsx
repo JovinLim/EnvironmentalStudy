@@ -29,6 +29,8 @@ import { HideWarningAlert } from './utils/General/AlertHandler'
 
 
 let simulation_url = import.meta.env.BASE_URL + import.meta.env.VITE_SF_PORT + '/'
+const markerurl = import.meta.env.VITE_TESTING ? '../src/assets/marker-icon.png' : import.meta.env.BASE_URL + 'assets/marker-icon.png'
+
 // Create signal to export the Playground object, allows access from different files
 export const [playground, setPlayground] = createSignal<Playground>()
 const reader = new FileReader()
@@ -431,6 +433,7 @@ export async function updateModelLayers (playground_ : Playground, refresh : boo
 
 async function test() {
   console.log(simulation_url)
+  console.log(markerurl)
   let request = {
     method: 'GET',
   }

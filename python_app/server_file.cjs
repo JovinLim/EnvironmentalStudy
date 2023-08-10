@@ -15,9 +15,9 @@ var multiparty = require('multiparty');
 const env = require('dotenv').config({path: process.cwd()+`/.env.${process.env.NODE_ENV}`}).parsed;
 
 const app = express()
-const port = env.SF_PORT
+const port = env.VITE_SF_PORT
 const pyhost = env.VITE_PY_HOST
-const testing = env['TESTING']
+const testing = env.VITE_TESTING
 
 const options_rad = {
   // For python server that processes the model and runs sim
