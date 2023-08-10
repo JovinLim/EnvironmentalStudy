@@ -1,2 +1,4 @@
 node_modules
 dist
+public/downloads
+server_app/server

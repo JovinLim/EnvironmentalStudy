@@ -4,15 +4,13 @@ import solidPlugin from 'vite-plugin-solid';
 import inject from '@rollup/plugin-inject';
 import { build } from 'esbuild';
 import { polyfillNode } from 'esbuild-plugin-polyfill-node';
+import { NodeModulesPolyfillPlugin } from "@esbuild-plugins/node-modules-polyfill";
 
 export default defineConfig({
   plugins: [
-    /* 
-    Uncomment the following line to enable solid-devtools.
-    For more info see https://github.com/thetarnav/solid-devtools/tree/main/packages/extension#readme
-    */
+
     solidPlugin(),
-    polyfillNode(),
+    // polyfillNode(),
   ],
   base:"/EnvironmentalStudy/",
   server: {
@@ -27,5 +25,10 @@ export default defineConfig({
   preview: {
     host:true,
     port:62875
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      plugins: [NodeModulesPolyfillPlugin()]
+    },
   },
 });

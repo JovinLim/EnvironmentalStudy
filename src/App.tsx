@@ -24,8 +24,7 @@ import { HardReset, createDatabase, createLogDatabase, getDBStorage_Refresh, set
 import rhino3dm from 'rhino3dm'
 import { runRadiationSimulation } from './Components/Simulation/Simulate'
 import { HideWarningAlert } from './utils/General/AlertHandler'
-// import {spawn} from 'promisify-child-process'
-// import {spawn} from 'child_process'
+// import { exec } from "child_process"
 // import { createDatabase, createLogDatabase, setDBStorage } from './utils/Storage/IndexedDBFunctions'
 
 
@@ -429,6 +428,15 @@ export async function updateModelLayers (playground_ : Playground, refresh : boo
       }
     })
   }
+}
+
+async function test() {
+  let request = {
+    method: 'GET',
+  }
+  let response = await fetch(simulation_url, request)
+  let result = await response.json()
+  console.log(result)
 }
 
 const App: Component = () => {

@@ -1344,3 +1344,28 @@
 [2023-08-09 12:49:31,465] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\simulation\\ladybug\\radiation.py', reloading
 [2023-08-09 12:49:31,465] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\simulation\\ladybug\\radiation.py', reloading
 [2023-08-09 12:49:32,670] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-09 12:49:33,827] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-09 12:49:33,830] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-09 12:49:40,212] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\server_test.py', reloading
+[2023-08-09 12:49:41,775] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-09 12:49:42,932] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-09 12:49:42,935] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-09 12:51:16,772] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\simulation\\ladybug\\radiation.py', reloading
+[2023-08-09 12:51:16,772] {_internal.py:224} INFO -  * Detected change in 'C:\\Users\\Jovin\\OneDrive\\OneDrive - DP Architects Pte Ltd\\Personal\\JS\\EnvironmentalStudy\\python_app\\simulation\\ladybug\\radiation.py', reloading
+[2023-08-09 12:51:17,927] {_internal.py:224} INFO -  * Restarting with watchdog (windowsapi)
+[2023-08-09 12:51:19,095] {_internal.py:224} WARNING -  * Debugger is active!
+[2023-08-09 12:51:19,098] {_internal.py:224} INFO -  * Debugger PIN: 132-257-768
+[2023-08-09 12:53:44,328] {server_app.py:57} INFO - Request received on /radiation
+[2023-08-09 12:53:44,412] {connectionpool.py:1014} DEBUG - Starting new HTTPS connection (1): energyplus-weather.s3.amazonaws.com:443
+[2023-08-09 12:53:48,520] {connectionpool.py:473} DEBUG - https://energyplus-weather.s3.amazonaws.com:443 "GET /southwest_pacific_wmo_region_5/SGP/SGP_Singapore.486980_IWEC/SGP_Singapore.486980_IWEC.zip HTTP/1.1" 200 207788
+[2023-08-09 12:53:54,298] {server_app.py:132} INFO - payload written
+[2023-08-09 12:53:54,326] {server_app.py:136} INFO - public payload written
+[2023-08-09 12:53:54,326] {server_app.py:143} INFO - Solar Radiation Simulation Done
+[2023-08-09 12:53:54,330] {_internal.py:224} INFO - 127.0.0.1 - - [09/Aug/2023 12:53:54] "POST /radiation HTTP/1.1" 200 -
+[2023-08-09 12:54:23,977] {server_app.py:57} INFO - Request received on /radiation
+[2023-08-09 12:54:24,030] {connectionpool.py:1014} DEBUG - Starting new HTTPS connection (1): climate.onebuilding.org:443
+[2023-08-09 12:54:25,129] {connectionpool.py:473} DEBUG - https://climate.onebuilding.org:443 "GET /WMO_Region_2_Asia/PAK_Pakistan/BA_Balochistan/PAK_BA_Dalbandin.AP.417120_TMYx.zip HTTP/1.1" 200 426833
+[2023-08-09 12:54:31,360] {server_app.py:132} INFO - payload written
+[2023-08-09 12:54:31,389] {server_app.py:136} INFO - public payload written
+[2023-08-09 12:54:31,389] {server_app.py:143} INFO - Solar Radiation Simulation Done
+[2023-08-09 12:54:31,392] {_internal.py:224} INFO - 127.0.0.1 - - [09/Aug/2023 12:54:31] "POST /radiation HTTP/1.1" 200 -
