@@ -40,7 +40,7 @@ import {XMLParser} from 'fast-xml-parser';
 export const [marker, setMarker] = createSignal();
 let map = new Map;
 const parser = new XMLParser();
-const markerurl = import.meta.env.testing ? '../src/assets/marker-icon.png' : './assets/marker-icon.png'
+const markerurl = import.meta.env.testing ? '../src/assets/marker-icon.png' : import.meta.env.BASE_URL + 'assets/marker-icon.png'
 console.log (import.meta.env.WEB_HOSTNAME)
 
 export function buildMap(div){

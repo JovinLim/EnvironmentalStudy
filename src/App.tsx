@@ -28,7 +28,7 @@ import { HideWarningAlert } from './utils/General/AlertHandler'
 // import { createDatabase, createLogDatabase, setDBStorage } from './utils/Storage/IndexedDBFunctions'
 
 
-let simulation_url = import.meta.env.VITE_FILE_HOST
+let simulation_url = import.meta.env.BASE_URL + import.meta.env.SF_PORT
 
 // Create signal to export the Playground object, allows access from different files
 export const [playground, setPlayground] = createSignal<Playground>()
