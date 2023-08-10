@@ -568,7 +568,7 @@ const App: Component = () => {
             </div>
         </div>
         {/* FILE LAYERS END */}
-        <button id="import_button" onclick={(e) => runRadiationSimulation()} style="z-index:100" class="items-center text-center w-full border-b border-gray-400 p-5 font-medium text-gray-200 hover:bg-blue-800">
+        <button id="import_button" onclick={(e) => test()} style="z-index:100" class="items-center text-center w-full border-b border-gray-400 p-5 font-medium text-gray-200 hover:bg-blue-800">
           <label>Run Radiation Simulation</label>
         </button>
         <div class="flex">
